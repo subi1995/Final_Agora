@@ -4,7 +4,7 @@ from django.conf.urls import url,include
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth import views
-from study import views as study_views
+from study import views 
 
 
 urlpatterns = [
@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^', include('study.urls', namespace='study')), #, namespace='study'
     url(r'',include('reservation.urls')),
-    url(r'^accounts/signup/$', study_views.signup, name='signup'),
+    url(r'^accounts/signup/$', views.signup, name='signup'),
 	url(r'^summernote/', include('django_summernote.urls')),
 ]
 
