@@ -208,7 +208,7 @@ def comment_remove(request, pk):
     if comment.author == request.user:
         post_pk = comment.post.pk
         comment.delete()
-        return redirect('stduy:post_detail', pk=post_pk)
+        return redirect('study:post_detail', pk=post_pk)
     else:
         return render(request, 'bsr/warning.html')
 
