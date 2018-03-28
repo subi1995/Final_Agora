@@ -1,0 +1,135 @@
+{% extends 'reservation/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/reservation/css/detail_style.css?ver=213654">
+<link rel="stylesheet" href="static/reservation/css/nodep-date-input-polyfill/nodep-date-input-polyfill.dist.js">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <div class="content">
+            <!--메인 영역-->
+            <div class="main_content">
+                <br>
+                <div class="main_content_name"><h1>Edit Reservation</h1></div>
+                <div class="add_post"  style="width: 90% ;margin-left: 5%; margin-right:5% ; ">
+                <form method="POST" class="reservation-form">
+                  {% csrf_token %}
+
+                {{form.non_field_errors}}
+                <fieldset style="border: 0.1vw solid #ccc; padding-left: 2%; padding-top: 1.5%; padding-bottom: 1.5%;">
+                  <legend style="margin-left: 0.5vw; padding: 0.3vw; font-weight: bold;">사용자 정보</legend>
+                    <ul style="padding-left: 2%;">
+                      <li style="margin-bottom: 1.3%;">
+                        {{form.name.errors}}
+                        <label for="id_name">신청자 이름 :</label>
+                        <input id="id_name" maxlength="10" name="name" type="text">
+                      </li>
+                      <li style="margin-bottom: 1.3%;">
+                        {{form.tel_num.errors}}
+                        <label for="id_tel_num">전화번호 :</label>
+                      <input type="text" name="tel_num" id="id_tel_num" />
+                      </li>
+                      <li style="margin-bottom: 1.3%;">
+                        {{form.major.errors}}
+                        <label for="id_major">학 과:</label>
+                      <input type="text" name="major" id="id_major" />
+                      </li>
+                    </ul>
+                </fieldset>
+
+                <fieldset style="border: 0.1vw solid #ccc; padding-left: 2%; padding-top: 1.5%; padding-bottom: 1.5%;">
+                <legend style="margin-left: 0.5vw; padding: 0.3vw; font-weight: bold;">예약 정보</legend>
+                  <ul style="padding-left: 2%;">
+                        <li style="margin-bottom: 1.3%;">
+                          {{form.num_people.errors}}
+                          <label for="id_num_people">신청 인원:</label>
+                        <input type="number"  min="1" max="30" name="num_people" id="id_num_people" />
+                        </li>
+                        <li style="margin-bottom: 1.3%;">
+                          <label for="id_room_number">예약 장소:</label>
+                          <select id="id_room_number" name="room_number">
+                            <optgroup label="12인 이하">
+                          <option value="0">세미나 실</option>                  
+                          <option value="1">라운지</option>
+                          <option value="2">갤러리</option>  
+                            </optgroup>
+                            <optgroup label="12인 이상">
+                          <option value="3">세미나실 + 라운지</option> 
+                          <option value="4">라운지 + 갤러리</option>
+                          <option value="5">세미나실 + 라운지 + 갤러리</option> 
+                            </optgroup>
+                        </select>
+                        </li>
+
+                        <li style="margin-bottom: 1.3%;">
+                          {{form.rend_date.errors}}
+                          <label for="datepicker1">예약 날짜:</label>
+                        <input type="text" name="rend_date" id="datepicker1" />
+                      </li>
+                      <li style="margin-bottom: 1.3%;">
+                          <label >예약 시간:</label>
+                          {{form.rend_time.errors}}                
+                        <select id="id_rend_time" name="rend_time">
+                          <option value="0">9:00 ~ 10:00</option>               
+                          <option value="1">10:00 ~ 11:00</option>
+                          <option value="2">11:00 ~ 12:00</option>  
+                          <option value="3">12:00 ~ 13:00</option> 
+                          <option value="4">13:00 ~ 14:00</option>
+                          <option value="5">14:00 ~ 15:00</option>
+                          <option value="6">15:00 ~ 16:00</option>  
+                          <option value="7">16:00 ~ 17:00</option>
+                          <option value="8">17:00 ~ 18:00</option>
+                          <option value="9">18:00 ~ 19:00</option>
+                          <option value="10">19:00 ~ 20:00</option>
+                        </select>
+                      </li>            
+                      <li style="margin-bottom: 1.3%;">           
+                          <label >반납 시간:</label>
+
+                          {{form.rend_time.errors}}
+                        <select id="id_rend_time" name="return_time">
+                          <option value="0">9:00 ~ 10:00</option>               
+                          <option value="1">10:00 ~ 11:00</option>
+                          <option value="2">11:00 ~ 12:00</option>  
+                          <option value="3">12:00 ~ 13:00</option> 
+                          <option value="4">13:00 ~ 14:00</option>
+                          <option value="5">14:00 ~ 15:00</option>
+                          <option value="6">15:00 ~ 16:00</option>  
+                          <option value="7">16:00 ~ 17:00</option>
+                          <option value="8">17:00 ~ 18:00</option>
+                          <option value="9">18:00 ~ 19:00</option>
+                          <option value="10">19:00 ~ 20:00</option>
+                        </select>
+                      </li>
+                  </ul>
+                </fieldset>
+            <div class="add_post_control" style="display: flex;width: 25%; margin-left: 75%;  margin-top: 1vw; justify-content: space-between;">
+                    <button type="submit" class="save btn btn-default"  style="height: 2vw; width: 4vw; border-radius: 5px; background-color: #DC5E44; color: #FFFFFF; font-size: 0.7vw;">save</button>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <a href="{% url 'Room_Reservation' %}" >
+                    <button type="button" class="btn btn-danger" style="height: 2vw; width: 4vw; border-radius: 5px; font-size: 0.7vw; font-weight: bold;">cancel</button>
+                    </a>
+            </div>
+            <!-- <div class="add_post_control">
+                    <button type="submit" class="save btn btn-default">save</button>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <a href="{% url 'Room_Reservation' %}" style=" width: 10%;">
+                    <button type="button" class="btn btn-danger">cancel</button>
+                    </a>
+            </div> -->
+            </form>
+          </div>
+        </div>
+      </div>
+<!--##################################  -->
+
+{% endblock %}

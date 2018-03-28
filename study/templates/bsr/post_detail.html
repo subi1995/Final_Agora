@@ -1,0 +1,106 @@
+{% extends 'bsr/base.html' %}
+{% load staticfiles %}
+
+{% load staticfiles %}
+
+{% block heading %}
+{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/study/css/detail_style.css?ver=7984658"> 
+
+        <div class="content">
+
+            <!--메인 영역-->
+            <div class="main_content">
+                <br>
+                <br>
+                <div class="main_content_name">공지사항</div>
+                <div class="main_content_unit" style="width: 90%; margin-left: 5%; margin-right: 5%">
+
+                    <div class="unit_line" style="  text-align: center;">
+                           <h1>{{ post.title }}</h1>
+                    </div>
+
+                    <div class="unit_line_information" style="display: flex; flex-direction: row;" >
+                        <div><span class="ilbl">작성자 :</span> {{ post.author}} </div>
+                        <div><span class="ilbl"> 작성일자 :</span>  {{ post.created_at|date:"Y-m-d D"}} </div>
+                    </div>
+                  
+                    <div class="unit_line_post">
+                        {% autoescape off %}
+                        {{post.content|linebreaksbr }}
+                        {% endautoescape %}
+                    </div>
+                    <div class="post-set-btn">
+                    <div class="btn-wrap">
+                    {% if post.author == user %}
+                      <a href="{%url 'study:post_edit' pk=post.pk %}" style="height: 1.2vw; width: 4vw;">
+                        <button type="button" class="btn btn-success" style="height: 1.2vw; width: 4vw;">수정</button>
+                      </a>
+                      <a href="{%url 'study:post_remove' pk=post.pk %}" style="height: 1.2vw; width: 4vw;">
+                        <button type="button" class="btn btn-danger" style="height: 1.2vw; width: 4vw;">삭제</button>
+                      </a>
+                      {% endif %}
+                      <a href="{% url 'study:post_list' %}" style="height: 1.2vw; width: 4vw;">
+                        <button type="button" class="btn btn-info" style="height: 1.2vw; width: 4vw;">뒤로</button>
+                      </a>
+                    </div>
+
+                    <hr>
+
+                    <form class="" action="" method="POST">
+                      {% csrf_token %}
+                      {{ form }}
+                        {% if form_edit %}
+                        {% else %}
+                          {% if user.is_anonymous %}
+                          <span class="comment-login-required"> 댓글 입력을 위해서는 <a href="{%url 'login' %}" class="login-link">로그인</a>이 필요합니다. </span>
+                          {% endif %}
+                        <button class="btn btn-default btn-xs comment-save" type="submit">저장</button>
+                        {% endif %}
+                    </form>
+
+                    {% for comment in post.comments.all %}
+                      {% if comment.id == pk %}
+                      <div class="comment">
+                        <form class="" action="" method="POST">
+                          {% csrf_token %}
+                          <div class="comment-info">
+                              <strong>{{ comment.author }}</strong>
+                              <small>{{ comment.created_date | date:'Y-m-d H:i' }}</small>
+                              <button class="comment_save" type="submit"><img src="{% static 'bsr/img/edit.png' %}" class="comment_edit" alt="comment_edit_save"></button>
+                          </div>
+                            {{ form_edit }}
+                          </form>
+                      </div>
+                      <hr>
+                      {% else %}
+                      <div class="comment">
+                          <div class="comment-info">
+                              <strong>{{ comment.author }}</strong>
+                              <small>{{ comment.created_date | date:'Y-m-d H:i' }}</small>
+                              {% if comment.author == user %}
+                              <a href="{% url 'study:comment_edit' pk=comment.pk %}"><img class="comment_edit" src="{% static 'bsr/img/edit.png' %}" alt=""></a>
+                              <a href="{% url 'study:comment_remove' pk=comment.pk %}"><img  class="comment_remove" src="{% static 'bsr/img/delete.png' %}" alt=""></a>
+                              {% endif %}
+                          </div>
+                          {% autoescape off %}
+                          <p>{{ comment.text|linebreaks}}</p>
+                          {% endautoescape %}
+                      </div>
+                      <br>
+                      <hr>
+
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>    
+
+  </div>
+
+
+
+{% endblock %}

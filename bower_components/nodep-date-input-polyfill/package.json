@@ -1,0 +1,47 @@
+{
+  "name": "nodep-date-input-polyfill",
+  "version": "5.2.0",
+  "description": "Automatically adds datepickers to input[type=date] on IE, Firefox, and macOS Safari.",
+  "main": "nodep-date-input-polyfill.dist.js",
+  "scripts": {
+    "start": "rollup -c -w & httpster",
+    "start-c9": "rollup -c -w & httpster -p $PORT",
+    "build": "rollup -c",
+    "test": "mocha --compilers js:babel-core/register"
+  },
+  "author": {
+    "name": "Brian Blakely",
+    "email": "anewpage.media@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/brianblakely/nodep-date-input-polyfill.git"
+  },
+  "bugs": "https://github.com/brianblakely/nodep-date-input-polyfill/issues",
+  "keywords": [
+    "html5",
+    "light",
+    "lightweight",
+    "input",
+    "type",
+    "date",
+    "datepicker",
+    "polyfill"
+  ],
+  "analyze": true,
+  "license": "MIT",
+  "devDependencies": {
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.0",
+    "chai": "^4.1.0",
+    "eslint": "^4.2.0",
+    "httpster": "^1.0.3",
+    "mocha": "^3.4.2",
+    "rollup": "^0.45.2",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-babel-minify": "^3.1.2",
+    "rollup-plugin-sass": "^0.5.3",
+    "rollup-watch": "^4.3.1"
+  },
+  "dependencies": {}
+}

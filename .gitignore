@@ -1,0 +1,9 @@
+*.pyc
+*.sqlite3
+db.sqlite3
+myvenv
+__pycache__
+local_settings.py
+uploads/
+db.sqlite3
+media/
