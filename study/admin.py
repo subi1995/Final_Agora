@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Post, Comment ,Agora
+from .models import Post ,Agora
 from django_summernote.admin import SummernoteModelAdmin
 
-admin.site.register(Comment)
+##admin.site.register(Comment)
 #admin.site.register(Agora)
 
 @admin.register(Post)

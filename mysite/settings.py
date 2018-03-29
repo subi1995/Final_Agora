@@ -42,10 +42,10 @@ INSTALLED_APPS = [
     'django_summernote',
     'debug_toolbar',
     'reservation',
-##    'disqus',
-##    'django.contrib.sites',
+    'disqus',
+    'django.contrib.sites',
 ]
-##DISQUS_WEBSITE_SHORTNAME = 'gnu-aulmaru'
+DISQUS_WEBSITE_SHORTNAME = 'gnu-aulmaru'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -4,8 +4,8 @@ from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.views.generic import ListView
-from .models import Post, Comment ,Agora
-from .forms import PostForm, CommentForm, CreateUserForm ,AgoraForm
+from .models import Post ,Agora
+from .forms import PostForm, CreateUserForm ,AgoraForm
 
 
 
@@ -69,20 +69,20 @@ class homeLV(ListView):
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    if request.method == "POST":
-        if request.user.is_anonymous():
-            return redirect('login')
-        form = CommentForm(request.POST)
-
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.author = request.user
-            comment.post = post
-            comment.save()
-        return redirect('study:post_detail', pk=post.pk)
-    else:
-        form = CommentForm()
-        return render(request, 'bsr/post_detail.html', {'post':post, 'form':form})
+##    if request.method == "POST":
+##        if request.user.is_anonymous():
+##            return redirect('login')
+##        form = CommentForm(request.POST)
+##
+##        if form.is_valid():
+##            comment = form.save(commit=False)
+##            comment.author = request.user
+##            comment.post = post
+##            comment.save()
+##        return redirect('study:post_detail', pk=post.pk)
+##    else:
+##        form = CommentForm()
+    return render(request, 'bsr/post_detail.html', {'post':post})
 
 @login_required
 def post_new(request):
@@ -143,20 +143,20 @@ class agoraLV(ListView):
 
 def agora_detail(request, pk_2):
     agora = get_object_or_404(Agora, pk=pk_2)
-    if request.method == "POST":
-        if request.user.is_anonymous():
-            return redirect('login')
-        form = CommentForm(request.POST)
-
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.author = request.user
-            comment.agora = agora
-            comment.save()
-        return redirect('study:agora_detail', pk_2=agora.pk)
-    else:
-        form = CommentForm()
-        return render(request, 'bsr/agora_detail.html', {'agora':agora, 'form':form})
+##    if request.method == "POST":
+##        if request.user.is_anonymous():
+##            return redirect('login')
+##        form = CommentForm(request.POST)
+##
+##        if form.is_valid():
+##            comment = form.save(commit=False)
+##            comment.author = request.user
+##            comment.agora = agora
+##            comment.save()
+##        return redirect('study:agora_detail', pk_2=agora.pk)
+##    else:
+##        form = CommentForm()
+    return render(request, 'bsr/agora_detail.html', {'agora':agora})
 
 @login_required
 def agora_new(request):
@@ -202,32 +202,32 @@ def agora_remove(request, pk_2):
 
 ####coment
 
-@login_required
-def comment_remove(request, pk):
-    comment = get_object_or_404(Comment, pk=pk)
-    if comment.author == request.user:
-        post_pk = comment.post.pk
-        comment.delete()
-        return redirect('study:post_detail', pk=post_pk)
-    else:
-        return render(request, 'bsr/warning.html')
-
-@login_required
-def comment_edit(request, pk):
-    comment = get_object_or_404(Comment, pk=pk)
-    post = get_object_or_404(Post, pk=comment.post.id)
-
-    if request.method == "POST":
-        form = CommentForm(request.POST, instance=comment)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.created_date = timezone.now()
-            comment.save()
-        return redirect('study:post_detail', pk=post.pk)
-        
-    else:
-        form_edit = CommentForm(instance=comment)
-        return render(request, 'bsr/post_detail.html', {'post':post, 'form_edit':form_edit, 'pk':comment.pk})
+##@login_required
+##def comment_remove(request, pk):
+##    comment = get_object_or_404(Comment, pk=pk)
+##    if comment.author == request.user:
+##        post_pk = comment.post.pk
+##        comment.delete()
+##        return redirect('study:post_detail', pk=post_pk)
+##    else:
+##        return render(request, 'bsr/warning.html')
+##
+##@login_required
+##def comment_edit(request, pk):
+##    comment = get_object_or_404(Comment, pk=pk)
+##    post = get_object_or_404(Post, pk=comment.post.id)
+##
+##    if request.method == "POST":
+##        form = CommentForm(request.POST, instance=comment)
+##        if form.is_valid():
+##            comment = form.save(commit=False)
+##            comment.created_date = timezone.now()
+##            comment.save()
+##        return redirect('study:post_detail', pk=post.pk)
+##        
+##    else:
+##        form_edit = CommentForm(instance=comment)
+##        return render(request, 'bsr/post_detail.html', {'post':post, 'form_edit':form_edit, 'pk':comment.pk})
 
 
 ##@login_required

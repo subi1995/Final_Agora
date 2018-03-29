@@ -1,6 +1,6 @@
 # study/forms.py
 from django import forms
-from .models import Post, Comment, Agora
+from .models import Post, Agora
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
@@ -32,16 +32,16 @@ class AgoraForm(forms.ModelForm):
     #     }
 
 
-class CommentForm(forms.ModelForm):
-
-    class Meta:
-        model = Comment
-        fields = ('text',)
-        widgets = {
-            'text' : forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': '댓글을 입력해주세요.'}),
-        }
-
-
+##class CommentForm(forms.ModelForm):
+##
+##    class Meta:
+##        model = Comment
+##        fields = ('text',)
+##        widgets = {
+##            'text' : forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': '댓글을 입력해주세요.'}),
+##        }
+##
+##
 class CreateUserForm(UserCreationForm):
     email = forms.EmailField(
         required=True,

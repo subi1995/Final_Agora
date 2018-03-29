@@ -46,15 +46,15 @@ def user_path(instance, filename):
     return '{}/{}.{}'.format(instance.author.username, pid, extension)
 
 
-class Comment(models.Model):
-##    agora = models.ForeignKey('study.Agora', related_name='comments',on_delete=models.CASCADE)
-    post = models.ForeignKey('study.Post', related_name='comments',on_delete=models.CASCADE)
-    author = models.ForeignKey('auth.User',on_delete=models.CASCADE)
-    text = models.TextField(verbose_name='')
-    created_date = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        ordering = ['-created_date']
-
-    def __str__(self):
-        return self.text
+##class Comment(models.Model):
+####    agora = models.ForeignKey('study.Agora', related_name='comments',on_delete=models.CASCADE)
+##    post = models.ForeignKey('study.Post', related_name='comments',on_delete=models.CASCADE)
+##    author = models.ForeignKey('auth.User',on_delete=models.CASCADE)
+##    text = models.TextField(verbose_name='')
+##    created_date = models.DateTimeField(auto_now_add=True)
+##
+##    class Meta:
+##        ordering = ['-created_date']
+##
+##    def __str__(self):
+##        return self.text

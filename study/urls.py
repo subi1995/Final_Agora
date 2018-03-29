@@ -16,6 +16,6 @@ urlpatterns = [
     url(r'^agora/new/$', views.agora_new, name='agora_new'),
     url(r'^agora/(?P<pk_2>\d+)/edit/$', views.agora_edit, name='agora_edit'),
     url(r'^agora/(?P<pk_2>\d+)/remove/$', views.agora_remove, name='agora_remove'),
-    url(r'^comment/(?P<pk>\d+)/remove/$', views.comment_remove, name='comment_remove'),
-    url(r'^comment/(?P<pk>\d+)/edit/$', views.comment_edit, name='comment_edit'),
+##    url(r'^comment/(?P<pk>\d+)/remove/$', views.comment_remove, name='comment_remove'),
+##    url(r'^comment/(?P<pk>\d+)/edit/$', views.comment_edit, name='comment_edit'),
 ]
