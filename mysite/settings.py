@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'django_summernote',
-    'debug_toolbar',
+##    'debug_toolbar',
     'reservation',
     'disqus',
     'django.contrib.sites',

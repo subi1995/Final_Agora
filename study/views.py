@@ -200,8 +200,8 @@ def agora_remove(request, pk_2):
 	    
 
 
-####coment
-
+##coment
+##
 ##@login_required
 ##def comment_remove(request, pk):
 ##    comment = get_object_or_404(Comment, pk=pk)
@@ -228,8 +228,8 @@ def agora_remove(request, pk_2):
 ##    else:
 ##        form_edit = CommentForm(instance=comment)
 ##        return render(request, 'bsr/post_detail.html', {'post':post, 'form_edit':form_edit, 'pk':comment.pk})
-
-
+##
+##
 ##@login_required
 ##def comment_remove(request, pk):
 ##    comment = get_object_or_404(Comment, pk=pk)
@@ -256,3 +256,5 @@ def agora_remove(request, pk_2):
 ##    else:
 ##        form_edit = CommentForm(instance=comment)
 ##        return render(request, 'bsr/agora_detail.html', {'agora':agora, 'form_edit':form_edit, 'pk':comment.pk})
+##
+##
