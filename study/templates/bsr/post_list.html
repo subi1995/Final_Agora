@@ -30,7 +30,7 @@
 							</tr>
 							{% for posts in posts %}
 							<tr>
-								<th class="table_text">{{ posts.pk }}</th>
+								<th class="table_text">{{ posts.id }}</th>
 								<th class="table_text" style="text-decoration: none;"><a href="{% url 'study:post_detail' pk=posts.pk %}" >{{ posts.title }}</a></th>
 								<th class="table_text">{{ posts.author }}</th>
 								<th class="table_text_date">{{posts.created_at|date:"Y-m-d D"}}</th>
@@ -69,7 +69,7 @@
 	{% endif %}
 	<br>		
 		<div style="width: 90%; margin-left: 5%; margin-right: 5%;">
-			<button type="submit" style="height: 2vw; width: 5vw; background-color: #FFFFFF; border-radius: 10px; border: 0.2vw solid #ccc"><a href="{% url 'study:post_new' %}"><img src="/static/study/img/edit.png" style="height: 95%;"></a></button>
+			<a href="{% url 'study:post_new' %}"><button type="submit" style="height: 2vw; width: 5vw; background-color: #FFFFFF; border-radius: 10px; border: 0.2vw solid #ccc"><img src="/static/study/img/edit.png" style="height: 95%;"></button></a>
 		</div>
 					
 	    	<p>

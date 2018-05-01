@@ -12,13 +12,14 @@
 
 html { height: 100%; font-family: sans-serif; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 body { height: 100%; -webkit-font-smoothing: antialiased; font-smoothing: antialiased; -webkit-overflow-scrolling: touch; overflow-scrolling: touch; }
-html, body, div, span, applet, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a {text-decoration: none;}, abbr, acronym, address, big, cite, code,
+html, body, div, span, applet, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre ,a {text-decoration: none;}, abbr, acronym, address, big, cite, code,
 del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0;}
+table, caption, tbody, tfoot, thead, tr, th {text-decoration: none; font-weight: normal;}, td { margin: 0; padding: 0; border: 0;}
 article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary { display: block; }
 div, article, section, header, footer, p, ul, li, span, label { box-sizing: border-box; }
 
 body {
+    font-family: 'Spinnaker', sans-serif;
 	background-color: #E1E1E1;
 }
 
@@ -44,7 +45,7 @@ body {
     font-family: 'Nanum Gothic', sans-serif;   
 	position: relative;
 	width: 90%;
-	height: 15vw;
+	height: 13vw;
 	margin-left: 5%;
 	border:0.1vw solid #ccc;
 }
@@ -94,7 +95,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	width: 70%;
-	height: 60vw;
+	height: 34vw;
 }
 
 .main_content_name {
@@ -103,7 +104,7 @@ body {
 	font-size: 1.3vw;
 	margin-top: 1vw;
 	margin-bottom: 1vw;
-
+	color: #DC5E44;
 }
 
 .main_content_unit {

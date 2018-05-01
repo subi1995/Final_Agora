@@ -112,14 +112,14 @@
                     <div class="post-set-btn">
                     <div class="btn-wrap">
                     {% if reservation.author == user %}
-                      <a href="{%url 'study:post_edit' pk=post.pk %}" style="height: 1.2vw; width: 4vw;">
+                      <a href="{%url 'reservation_edit' pk_2=reservation.pk %}" style="height: 1.2vw; width: 4vw;">
                         <button type="button" class="btn btn-success" style="height: 1.2vw; width: 4vw;">수정</button>
                       </a>
-                      <a href="{%url 'study:post_remove' pk=post.pk %}" style="height: 1.2vw; width: 4vw;">
+                      <a href="{%url 'reservation_remove' pk_2=reservation.pk %}" style="height: 1.2vw; width: 4vw;">
                         <button type="button" class="btn btn-danger" style="height: 1.2vw; width: 4vw;">삭제</button>
                       </a>
                       {% endif %}
-                      <a href="{% url 'study:post_list' %}" style="height: 1.2vw; width: 4vw;">
+                      <a href="{% url 'Room_Reservation' %}" style="height: 1.2vw; width: 4vw;">
                         <button type="button" class="btn btn-info" style="height: 1.2vw; width: 4vw;">뒤로</button>
                       </a>
                     </div>

@@ -228,6 +228,10 @@ h1, h2, h3, h4 {
 
 }
 /* 댓글 기능*/
+.comment_input{
+	width: 90%;
+	height: 3vw;
+}
 .discus {
 	display: flex;
 	width: 80%;

@@ -50,16 +50,27 @@
 
                     <hr>
 
+                    <!-- =========== 댓글 입력 부분 ============ -->
+                    
                     <form class="" action="" method="POST">
                       {% csrf_token %}
-                      {{ form }}
-                        {% if form_edit %}
-                        {% else %}
-                          {% if user.is_anonymous %}
-                          <span class="comment-login-required"> 댓글 입력을 위해서는 <a href="{%url 'login' %}" class="login-link">로그인</a>이 필요합니다. </span>
+                        <div style="  padding-left: 5%; padding-right: 5%;">
+                          {{form.text.errors}}
+                          <span style="color: #DC5E44; font-weight: bold; font-size: 0.7vw;">[ 댓 글 ]</span><br><br>
+                          <textarea class="comment_input" id="id_text" wrap="hard" maxlength="500" name="text" ></textarea> 
+                        
+                          {% if form_edit %}
+                          {% else %}
+                            {% if user.is_anonymous %}
+                          <div >
+                            <br>
+                            <span class="comment-login-required" > 댓글 입력을 위해서는 <a href="{%url 'login' %}" class="login-link" style="">로그인</a>이 필요합니다. </span>
+                            {% endif %}
+                            <button class="btn btn-default btn-xs comment-save" type="submit">저장</button>
                           {% endif %}
-                        <button class="btn btn-default btn-xs comment-save" type="submit">저장</button>
-                        {% endif %}
+                          </div>
+                          <br>
+                        </div>
                     </form>
 
                     {% for comment in post.comments.all %}

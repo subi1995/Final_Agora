@@ -5,11 +5,7 @@
 <link rel="stylesheet" href="/static/reservation/css/detail_style.css?ver=213654">
 <link rel="stylesheet" href="static/reservation/css/nodep-date-input-polyfill/nodep-date-input-polyfill.dist.js">
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 
         <div class="content">
             <!--메인 영역-->
@@ -53,57 +49,51 @@
                         <li style="margin-bottom: 1.3%;">
                           <label for="id_room_number">예약 장소:</label>
                           <select id="id_room_number" name="room_number">
-                            <optgroup label="12인 이하">
-                          <option value="0">세미나 실</option>                  
-                          <option value="1">라운지</option>
-                          <option value="2">갤러리</option>  
-                            </optgroup>
-                            <optgroup label="12인 이상">
-                          <option value="3">세미나실 + 라운지</option> 
-                          <option value="4">라운지 + 갤러리</option>
-                          <option value="5">세미나실 + 라운지 + 갤러리</option> 
+                            <optgroup label="목 록">
+                              <option value="0">세미나 실</option>                  
+                              <option value="1">어울마루 전체</option>
                             </optgroup>
                         </select>
                         </li>
 
                         <li style="margin-bottom: 1.3%;">
                           {{form.rend_date.errors}}
-                          <label for="datepicker1">예약 날짜:</label>
-                        <input type="text" name="rend_date" id="datepicker1" />
-                      </li>
+                          <label for="datepicker">예약 날짜:</label>
+                          <input type="text" id="datepicker" name="rend_date" class="hasDatepicker" />
+                        </li>
+
                       <li style="margin-bottom: 1.3%;">
                           <label >예약 시간:</label>
                           {{form.rend_time.errors}}                
                         <select id="id_rend_time" name="rend_time">
-                          <option value="0">9:00 ~ 10:00</option>               
-                          <option value="1">10:00 ~ 11:00</option>
-                          <option value="2">11:00 ~ 12:00</option>  
-                          <option value="3">12:00 ~ 13:00</option> 
-                          <option value="4">13:00 ~ 14:00</option>
-                          <option value="5">14:00 ~ 15:00</option>
-                          <option value="6">15:00 ~ 16:00</option>  
-                          <option value="7">16:00 ~ 17:00</option>
-                          <option value="8">17:00 ~ 18:00</option>
-                          <option value="9">18:00 ~ 19:00</option>
-                          <option value="10">19:00 ~ 20:00</option>
+                          <option value="0">9:00</option>               
+                          <option value="1">10:00</option>
+                          <option value="2">11:00</option>  
+                          <option value="3">12:00</option> 
+                          <option value="4">13:00</option>
+                          <option value="5">14:00</option>
+                          <option value="6">15:00</option>  
+                          <option value="7">16:00</option>
+                          <option value="8">17:00</option>
+                          <option value="9">18:00</option>
+                          <option value="10">19:00</option>
                         </select>
                       </li>            
                       <li style="margin-bottom: 1.3%;">           
                           <label >반납 시간:</label>
-
                           {{form.rend_time.errors}}
                         <select id="id_rend_time" name="return_time">
-                          <option value="0">9:00 ~ 10:00</option>               
-                          <option value="1">10:00 ~ 11:00</option>
-                          <option value="2">11:00 ~ 12:00</option>  
-                          <option value="3">12:00 ~ 13:00</option> 
-                          <option value="4">13:00 ~ 14:00</option>
-                          <option value="5">14:00 ~ 15:00</option>
-                          <option value="6">15:00 ~ 16:00</option>  
-                          <option value="7">16:00 ~ 17:00</option>
-                          <option value="8">17:00 ~ 18:00</option>
-                          <option value="9">18:00 ~ 19:00</option>
-                          <option value="10">19:00 ~ 20:00</option>
+                          <option value="0">10:00</option>               
+                          <option value="1">11:00</option>
+                          <option value="2">12:00</option>  
+                          <option value="3">13:00</option> 
+                          <option value="4">14:00</option>
+                          <option value="5">15:00</option>
+                          <option value="6">16:00</option>  
+                          <option value="7">17:00</option>
+                          <option value="8">18:00</option>
+                          <option value="9">19:00</option>
+                          <option value="10">s20:00</option>
                         </select>
                       </li>
                   </ul>

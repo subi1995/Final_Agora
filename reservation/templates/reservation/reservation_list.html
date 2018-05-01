@@ -4,13 +4,12 @@
 {% block heading %}
 {% endblock %}
 
-<link rel="stylesheet" href="/static/reservation/css/main.css?ver=213654"> 
+<link rel="stylesheet" href="/static/reservation/css/main.css?ver=213fhj654"> 
         <!-- 메뉴바 밑에 사진 -->  
-
     <div class="content">
         <div class="main_content">
         	<br>
-			<div class="main_content_name">NOTICE</div>
+			<div class="main_content_name">RESERVATION</div>
 				<div class="main_content_unit">
 					<table class="content_table" style="width: 90% ;margin-left: 5%; margin-right:5% ; ">
 						<colgroup>
@@ -26,96 +25,82 @@
 						</colgroup>
 						<thead>
 							<tr class="content_table_menu" style="color: #955c32;">
-
 								<th>번호</th>
 								<th>신청자</th>
-								<th>빌리는 곳</th>
-								<th>빌리는 날</th>
-								<th>빌리는 시간</th>
-								<th>반납 시간</th>
+								<th>장 소</th>
+								<th>예약 일</th>
+								<th colspan="2" align="center">예약 시간</th>							
 								<th>전화 번호</th>
 								<th>상태</th>
-								
 							</tr>
 							{% for reservation in reservations %}
 							<tr>
 								<th class="table_text">{{ reservation.pk }}</th>
 								<th class="table_text" style="text-decoration: none;"><a href="{% url 'reservation_detail' pk_2=reservation.pk %}" >{{ reservation.name }}</a></td></a></th>
 								{% if reservation.room_number == 0 %}
-								<th class="table_text">세미나실</th>
+								<th class="table_text">세미나 실</th>
 								{% endif%}
 								{% if reservation.room_number == 1 %}
-								<th class="table_text">라운지</th>
+								<th class="table_text">어울마루 전체</th>
 								{% endif%}
-								{% if reservation.room_number == 2 %}
-								<th class="table_text">갤러리</th>
-								{% endif%}
-								{% if reservation.room_number == 3 %}
-								<th class="table_text">세미나실 + 라운지</th>
-								{% endif%}
-								{% if reservation.room_number == 4 %}
-								<th class="table_text">라운지 + 갤러리</th>
-								{% endif%}
-								{% if reservation.room_number == 5 %}
-								<th class="table_text">세미나실 + 라운지 + 갤러리</th>
-								{% endif%}
+								
 								<th class="table_text">{{ reservation.rend_date|date:"Y-m-d"}}</th>
 
 								{% if reservation.rend_time == 0 %}
-									<th class="table_text_date">9시-10시 </th>
+									<th class="table_text_date">9시 </th>
 								{% endif%}
 								{% if reservation.rend_time == 1 %}
-									<th class="table_text_date">10시-11시 </th>
+									<th class="table_text_date">10시 </th>
 								{% endif%}
 								{% if reservation.rend_time == 2 %}
-									<th class="table_text_date">11시-12시 </th>
+									<th class="table_text_date">11시</th>
 								{% endif%}
 								{% if reservation.rend_time == 3 %}
-									<th class="table_text_date">12시-13시 </th>
+									<th class="table_text_date">12시 </th>
 								{% endif%}
 								{% if reservation.rend_time == 4 %}
-									<th class="table_text_date">13시-14시 </th>
+									<th class="table_text_date">13시</th>
 								{% endif%}
 								{% if reservation.rend_time == 5 %}
-									<th class="table_text_date">14시-15시 </th>
+									<th class="table_text_date">14시 </th>
 								{% endif%}
 								{% if reservation.rend_time == 6 %}
-									<th class="table_text_date">15시-16시 </th>
+									<th class="table_text_date">15시</th>
 								{% endif%}
 								{% if reservation.rend_time == 7 %}
-									<th class="table_text_date">16시-17시 </th>
+									<th class="table_text_date">16시 </th>
 								{% endif%}
 								{% if reservation.rend_time == 8 %}
-									<th class="table_text_date">17시-18시 </th>
+									<th class="table_text_date">17시 </th>
 								{% endif%}
 
 								<!--  -->
 								{% if reservation.return_time == 0 %}
-									<th class="table_text_date">9시-10시 </th>
+									<th class="table_text_date">10시 </th>
 								{% endif%}
 								{% if reservation.return_time == 1 %}
-									<th class="table_text_date">10시-11시 </th>
+									<th class="table_text_date">11시 </th>
 								{% endif%}
 								{% if reservation.return_time == 2 %}
-									<th class="table_text_date">11시-12시 </th>
+									<th class="table_text_date">12시 </th>
 								{% endif%}
 								{% if reservation.return_time == 3 %}
-									<th class="table_text_date">12시-13시 </th>
+									<th class="table_text_date">13시 </th>
 								{% endif%}
 								{% if reservation.return_time == 4 %}
-									<th class="table_text_date">13시-14시 </th>
+									<th class="table_text_date">14시 </th>
 								{% endif%}
 								{% if reservation.return_time == 5 %}
-									<th class="table_text_date">14시-15시 </th>
+									<th class="table_text_date">15시 </th>
 								{% endif%}
 								{% if reservation.return_time == 6 %}
-									<th class="table_text_date">15시-16시 </th>
+									<th class="table_text_date">16시 </th>
 								{% endif%}
 								{% if reservation.return_time == 7 %}
-									<th class="table_text_date">16시-17시 </th>
+									<th class="table_text_date">17시 </th>
 								{% endif%}
 								{% if reservation.return_time == 8 %}
-									<th class="table_text_date">17시-18시 </th>
+									<th class="table_text_date">18시 </th>
 								{% endif%}
 								
 								<th class="table_text_date">{{reservation.tel_num}} </th>
@@ -143,6 +128,7 @@
 		  {% else %}
 		    <li class="disabled" style="float: left; text-align: center;"><span>&laquo;&nbsp;&nbsp;</span></li>
 		  {% endif %}
+
 		  {% for i in paginator.page_range %}
 		    {% if page_obj.number == i %}
 		      <li class="active" style="float: left; text-align: center;"><span>  {{ i }}&nbsp;&nbsp;<span class="sr-only">(current)</span></span></li>
@@ -161,9 +147,8 @@
 	{% endif %}
 	<br>		
 		<div style="width: 90%; margin-left: 5%; margin-right: 5%;">
-			<button type="submit" style="height: 2vw; width: 5vw; background-color: #FFFFFF; border-radius: 10px; border: 0.2vw solid #ccc"><a href="{% url 'reservation_new' %}"><img src="/static/reservation/img/edit.png" style="height: 95%;"></a></button>
-		</div>
-					
+			<a href="{% url 'reservation_new' %}"><button type="submit" style="height: 2vw; width: 5vw; background-color: #FFFFFF; border-radius: 10px; border: 0.2vw solid #ccc"><img src="/static/reservation/img/edit.png" style="height: 95%;"></button></a>
+		</div>					
 	    	<p>
 				<form action="" method="get" class="text-right search" style="text-align: center; padding-right: 5%;" >
 					<input type="text" name="q" value="{{ q }}" placeholder="신청자 검색" class="search-input" style="width: 10vw;"" >

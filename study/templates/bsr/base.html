@@ -10,13 +10,7 @@
     <title>GNU 공과대학 회의실 어울마루</title>
     <link rel="icon" href="{% static 'bsr/img/profile-pic.png' %}">
 
-    <!-- Bootstrap Core CSS -->
-    <!-- <link href="{% static 'bsr/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"> -->
-
-    <!-- Theme CSS -->
-    <!-- <link href="{% static 'bsr/css/clean-blog.css' %}" rel="stylesheet"> -->
-	<!-- <link href="{% static 'study/style.css' %}" rel="stylesheet"> -->
-    <link rel="stylesheet" href="/static/study/css/blog_style.css?ver=28725">
+    <link rel="stylesheet" href="/static/study/css/blog_style.css?ver=686876">
 
     <!-- Custom Fonts -->
 	<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
@@ -40,33 +34,32 @@
             <!-- </div> -->
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class ="deco">
-            <div class="deco_img">       
+        <div id ="deco" >
+             <li style="text-align: right;">
+                {% if user.is_authenticated %}
+                <span class='username'>{{ user.username }} | &nbsp; </span>
+                {% endif %}
+                {% if user.is_active %}
+                <a href="{% url 'logout' %}" style="">Logout</a>
+                {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                {% endif %}
+            </li>
+            <div class="deco_img" >       
                 <a href="/"><img src="{% static 'study/img/AUL_MARU.PNG' %}"  style=" margin-left: 15%;  height: 50%; width: 70%; " /></a>
             </div>
+
         </div>
-<!-- <div style="display: flex; flex-direction: row;"> -->
+
             <!-- /.container -->
         <div id="menu">
-                <li class = "first"><a href="{% url 'study:post_list' %}">NOTICE</a></li>
-                <li class="first"><a href="{% url 'study:agora_list' %}">AGORA</a></li>
-                <li class="first"><a href="{% url 'Room_Reservation' %}">RESERVATION</a></li>
-                <li class="first">
-                    {% if user.is_active %}
-                    <a href="{% url 'logout' %}" style="">Logout</a>
-                    {% else %}
-                    <a href="{% url 'login' %}">Login</a>
-                    {% endif %}
-                </li>
-                    {% if user.is_authenticated %}
-                <li>
-                    <span class='username'>{{ user.username }}</span>
-                </li>
-                    {% endif %}
+            <li class="first"><a href="{% url 'Intro' %}">INTRO</a></li>
+            <li class="first"><a href="{% url 'Room_Reservation' %}">RESERVATION</a></li>
+            <li class = "first"><a href="{% url 'study:post_list' %}">NOTICE</a></li>
+            <li><a href="{% url 'study:agora_list' %}">AGORA</a></li>
         </div>
 
 
-<!-- </div> -->
 
     <!-- Page Header -->
 

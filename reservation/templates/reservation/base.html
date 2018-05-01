@@ -8,14 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>GNU 공과대학 회의실 어울마루</title>
-<!--     <link rel="icon" href="{% static 'reservation/img/profile-pic.png' %}"> -->
 
-    <!-- Bootstrap Core CSS -->
-    <!-- <link href="{% static 'bsr/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"> -->
-
-    <!-- Theme CSS -->
-    <!-- <link href="{% static 'bsr/css/clean-blog.css' %}" rel="stylesheet"> -->
-    <!-- <link href="{% static 'study/style.css' %}" rel="stylesheet"> -->
     <link rel="stylesheet" href="/static/reservation/css/blog_style.css?ver=28725">
 
     <!-- Custom Fonts -->
@@ -23,6 +16,19 @@
     <link href="{% static 'bsr/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>jQuery UI Datepicker - Default functionality</title>
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <link rel="stylesheet" href="/resources/demos/style.css">
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script>
+      $( function() {
+        $( "#datepicker" ).datepicker();
+      } );
+      </script>
 
 </head>
 <body>
@@ -45,12 +51,12 @@
                 <a href="/"><img src="{% static 'reservation/img/AUL_MARU.PNG' %}"  style=" margin-left: 15%;  height: 50%; width: 70%; " /></a>
             </div>
         </div>
-<!-- <div style="display: flex; flex-direction: row;"> -->
+
             <!-- /.container -->
         <div id="menu">
+                <li class="first"><a href="{% url 'Room_Reservation' %}">RESERVATION</a></li>
                 <li class = "first"><a href="{% url 'study:post_list' %}">NOTICE</a></li>
                 <li class="first"><a href="{% url 'study:agora_list' %}">AGORA</a></li>
-                <li class="first"><a href="{% url 'Room_Reservation' %}">RESERVATION</a></li>
                 <li class="first">
                     {% if user.is_active %}
                     <a href="{% url 'logout' %}" style="">Logout</a>
@@ -65,8 +71,6 @@
                     {% endif %}
         </div>
 
-
-<!-- </div> -->
 
     <!-- Page Header -->
 

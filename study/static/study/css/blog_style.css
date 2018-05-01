@@ -105,7 +105,22 @@ div#menu > li {
     width: 50%
 
 }
+div#deco > li {
+    display: flex;
+    position: relative;
+    color: white;
+    border-top: none;
+    border-bottom: none;
+    text-decoration: none;
+    font-weight: bold;
+    width: 50%
 
+}
+div#deco > a {
+    text-decoration: none;
+    font-weight: normal;
+    color: black;
+}
 .first {
     border-right: 0.08vw solid #bbb;
 }
@@ -131,7 +146,7 @@ div#menu {
 }
 
 /*#################################### Title*/
-.deco{
+div#deco{
     background-color: #DC5E44;
     position: relative;
     width: 100%;
