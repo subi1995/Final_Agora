@@ -10,7 +10,7 @@
             <!--메인 영역-->
             <div class="main_content">
                 <br>
-                <div class="main_content_name"><h1>New Notice</h1></div>
+                <div class="main_content_name"><h1>New AGORA</h1></div>
                 <div class="add_post"  style="width: 90% ;margin-left: 5%; margin-right:5% ; ">
                 <form method="POST" class="login-form col-md-12" enctype="multipart/form-data">
                   {% csrf_token %}
@@ -21,13 +21,12 @@
                     <label for="id_title"> 제 목 :</label>
                     <input id="id_title" maxlength="20" name="title" tpye="text">
                   </div>
-                  <div style="width: 95%; height: 50%;">
+                  <div style="width: 95%; ">
                     {{form.content.errors}}
                     <br>
                     <label for="id_content"></label>
                     {{form.content}}
                   </div>
-
                   <div class="add_post_control" style="display: flex;flex-direction: row; margin-top: 1vw;">
                     <button type="submit" class="save btn btn-success"  style="float: left;">save</button>
 
@@ -36,8 +35,9 @@
                     <a href="{% url 'study:post_list' %}">
                     <button type="button" class="btn btn-danger" style="float: right;">cancel</button>
                     </a>
-                  </div>
-                  </form>         
+                  </div>      
+                  </form> 
+                    
                   </div>       
                 </div>
             </div>

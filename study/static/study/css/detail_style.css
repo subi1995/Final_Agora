@@ -69,7 +69,7 @@ h1, h2, h3, h4 {
 	display: flex;
 	flex-direction: row;
 	width: 70%;
-	height: 90%;
+
 	margin-right: 15%;
 	margin-left: 15%;
 }
@@ -99,7 +99,7 @@ h1, h2, h3, h4 {
 	display: flex;
 	flex-direction: column;
 	width: 70%;
-	height: 60vw;
+	/*height: 60vw;*/
 }
 
 .main_content_name {
@@ -152,7 +152,7 @@ h1, h2, h3, h4 {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
 }
 
-.table_text , .table_text a , .table_text a:visited , table_text a:active{
+.table_text , .table_text a , .table_text a:visited , .table_text a:active{
     font-family: 'Nanum Gothic', sans-serif;   	
 	text-decoration: none;
 	font-size: 0.8vw;
@@ -192,16 +192,22 @@ h1, h2, h3, h4 {
 	border-top: 0.1vw solid #777;
 }
 .unit_line {
+	position: relative;
 	padding: 0.5vw 0.5vw;
 	display: flex;
+	flex-direction: row;
 	justify-content: space-around;
 	border-top:  0.05vw solid #777;
 	border-bottom: 0.05vw solid #777;
 }
 .unit_line h1 {
+	position: relative;
+	flex-direction: row;
 	font-size: 1.3vw;
 }
 .unit_line_information {
+	position: relative;
+	flex-direction: row;
 	padding: 0.5vw 0.5vw;
 	display: flex;
 	flex-direction: row;
@@ -210,14 +216,17 @@ h1, h2, h3, h4 {
 	border-bottom: 0.05vw solid #777;
 }
 .unit_line_post {
+	position: relative;
+	flex-direction: row;
 	font-size: 15px;
-	overflow: scroll;
-	height: 30vw;
-	/*display: flex;*/
+/*	overflow: scroll;*/
+	/*height: 30vw;*/
+	min-height: 20vw;
 	padding: 1vw 1vw;
 	border-top:  0.05vw solid #777;
 	border-bottom: 0.05vw solid #777;
 }
+
 .btn-wrap{
 	display: flex;
 	width: 40%;
@@ -231,6 +240,11 @@ h1, h2, h3, h4 {
 .comment_input{
 	width: 90%;
 	height: 3vw;
+}
+.comment {
+	position: relative;
+	display: flex;
+	flex-direction: column;
 }
 .discus {
 	display: flex;

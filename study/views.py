@@ -7,6 +7,9 @@ from django.views.generic import ListView
 from .models import Post, Comment ,Agora
 from .forms import PostForm, CommentForm, CreateUserForm ,AgoraForm
 
+def intro(request):
+
+    return render (request,'bsr/Intro.html',{})
 
 
 def signup(request):
@@ -51,21 +54,8 @@ class homeLV(ListView):
 
     def get_context_data(self,**kwargs):
         context = super(homeLV,self).get_context_data(**kwargs)
-##        context['Post'] = Post.objects.order_by('title')
         context['Agora'] = Agora.objects.order_by('title')
         return context
-    
-##    def get_queryset(self):
-##        return Post.objects.order_by('title')
-
-##class homeLV2(ListView):
-##    model = Agora
-##    template_name = 'bsr/home.html'
-##    context_object_name = 'agora'
-##    paginate_by = 5
-##
-##    def get_queryset(self):
-##        return Agora.objects.order_by('title')
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -176,7 +166,7 @@ def agora_new(request):
 def agora_edit(request, pk_2):
     agora = get_object_or_404(Agora, pk=pk_2)
     if request.method == 'POST':
-            form = AgoraForm(request.POST, request.FILES, instance=post)
+            form = AgoraForm(request.POST, request.FILES, instance=agora)
             if form.is_valid():
                     agora = form.save()
                     return redirect(agora)

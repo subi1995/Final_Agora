@@ -13,11 +13,22 @@
                 <div class="main_content_name"><h1>Edit Notice</h1></div>
                 <div class="add_post"  style="width: 90% ;margin-left: 5%; margin-right:5% ; ">
                 <form method="POST" class="login-form col-md-12" enctype="multipart/form-data">
-                  {% csrf_token %}
+                   {% csrf_token %}
                   <input type="hidden" name="next" value="">
-                 {{form.as_p}}
+                  {{form.non_field_errors}}
+                  <div>
+                    {{form.title.errors}}
+                    <label for="id_title"> 제 목 :</label>
+                    <input id="id_title" maxlength="20" name="title" tpye="text">
+                  </div>
+                  <div style="width: 95%;">
+                    {{form.content.errors}}
+                    <br>
+                    <label for="id_content"></label>
+                    {{form.content}}
+                  </div>
 
-                  <div class="add_post_control" style="display: flex;flex-direction: row; margin-top: 1vw;">
+                  <div class="add_post_control" style=" display: flex;flex-direction: row; margin-top: 1vw;">
                     <button type="submit" class="save btn btn-success"  style="float: left;">save</button>
 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
