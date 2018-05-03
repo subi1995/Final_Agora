@@ -9,7 +9,7 @@
             <div class="main_content">
                 <br>
                 <br>
-                <div class="main_content_name">공지사항</div>
+                <div class="main_content_name">RESERVATION</div>
                 <div class="main_content_unit" style="width: 90%; margin-left: 5%; margin-right: 5%">
 
                     <div class="unit_line" style="  text-align: center;">
@@ -27,12 +27,12 @@
                         <li><span class="ilbl">학과 :</span>  &nbsp;{{ reservation.major}} </li><br>
                         <li><span class="ilbl">전화번호 :</span>  &nbsp;{{ reservation.tel_num}} </li><br>
                         <li><span class="ilbl">신청 인원 :</span>  &nbsp;{{ reservation.num_people}} 명 </li><br>
-                        <li><span class="ilbl">빌리는 날짜 :</span> &nbsp; {{ reservation.rend_date|date:"Y-m-d D"}} </li>
+                        <li><span class="ilbl">빌리는 날짜 :</span> &nbsp; {{ reservation.rend_date|date:"Y-m-d D"}} </li><br>
                         
 
                         {% if reservation.room_number == 0 %}
                             <li><span class="ilbl" >빌리는 장소 :</span>  &nbsp;세미나실</li>
-                        {% endif%}<br>
+                        {% endif%}
                         {% if reservation.room_number == 1 %}
                             <li><span class="ilbl">빌리는 장소 :</span> &nbsp;라운지</li>
                         {% endif%}

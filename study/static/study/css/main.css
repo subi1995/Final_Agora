@@ -12,18 +12,27 @@
 
 html { height: 100%; font-family: sans-serif; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 body { height: 100%; -webkit-font-smoothing: antialiased; font-smoothing: antialiased; -webkit-overflow-scrolling: touch; overflow-scrolling: touch; }
-html, body, div, span, applet, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre {text-decoration: none;}, abbr, acronym, address, big, cite, code,
+html, body, div, span, applet, object, iframe, figure, h5, h6, p, blockquote, pre {text-decoration: none;}, abbr, acronym, address, big, cite, code,
 del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead,  td { margin: 0; padding: 0; border: 0;}
 article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary { display: block; }
 div, article, section, header, footer, p, ul, li, span, label { box-sizing: border-box; }
 
+a {
+	text-decoration: none;
+	font-weight: normal;
+	color: black;
+}
 tr {font-weight: bold;}
 
 th {text-decoration: none; font-weight: normal;} 
 body {
     font-family: 'Spinnaker', sans-serif;
 	background-color: #E1E1E1;
+}
+h1, h2, h3, h4 {
+   font-family: 'Spinnaker', sans-serif;
+   font-size: 1.5em;
 }
 
 .header {
@@ -163,8 +172,9 @@ body {
 	font-size: 0.8vw;
 	border-bottom: 0.05vw solid #777;		
 }
-.table_text_title{
-    font-family: 'Nanum Gothic', sans-serif;   
+.table_title{
+    font-family: 'Nanum Gothic', sans-serif;  
+    font-weight: bold; 
 	text-decoration: none;
 	font-size: 0.8vw;
 	border-bottom: 0.05vw solid #777;
@@ -198,8 +208,6 @@ body {
 .discus {
 	display: flex;
 	width: 80%;
-/*	margin-left: 10%;
-	margin-right: 10%;*/
 }
 
 /*새로은 글 추가*/
@@ -208,8 +216,7 @@ body {
 	display: flex;
 	position: relative;
 	flex-direction: column;
-/*	border-top:  0vw solid #777;
-	border-bottom: 0vw solid #777;*/
+
 }
 /*회의실 사진*/
 .photo_content {

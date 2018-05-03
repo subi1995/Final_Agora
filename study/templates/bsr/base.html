@@ -34,16 +34,6 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
         <div id ="deco" >
-             <li style="text-align: right;">
-                {% if user.is_authenticated %}
-                <span class='username'>{{ user.username }} | &nbsp; </span>
-                {% endif %}
-                {% if user.is_active %}
-                <a href="{% url 'logout' %}" style="">Logout</a>
-                {% else %}
-                <a href="{% url 'login' %}">Login</a>
-                {% endif %}
-            </li>
             <div class="deco_img" >       
                 <a href="/"><img src="{% static 'study/img/AUL_MARU.PNG' %}"  style=" margin-left: 15%;  height: 50%; width: 70%; " /></a>
             </div>
@@ -51,13 +41,25 @@
         </div>
 
             <!-- /.container -->
-        <div id="menu">
-            <li class="first"><a href="{% url 'study:Intro' %}">INTRO</a></li>
-            <li class="first"><a href="{% url 'Room_Reservation' %}">RESERVATION</a></li>
-            <li class = "first"><a href="{% url 'study:agora_list' %}">NOTICE</a></li>
-            <li ><a href="{% url 'study:post_list' %}">AGORA</a></li>
+        <div style="display: flex;flex-direction: row;">    
+            <div id="menu">
+                <li class="first"><a href="{% url 'study:Intro' %}">INTRO</a></li>
+                <li class="first"><a href="{% url 'Room_Reservation' %}">RESERVATION</a></li>
+                <li class = "first"><a href="{% url 'study:agora_list' %}">NOTICE</a></li>
+                <li ><a href="{% url 'study:post_list' %}">AGORA</a></li>
+            </div>
+            <div class="ID_info" >
+                    {% if user.is_authenticated %}
+                    <span class='username'>{{ user.username }} | &nbsp; </span>
+                    {% endif %}
+                    {% if user.is_active %}
+                    <a href="{% url 'logout' %}" >Logout</a>
+                    {% else %}
+                    <a href="{% url 'signup' %}"> Sign up</a>
+                    <a href="{% url 'login' %}">| Login</a>
+                    {% endif %}
+            </div>
         </div>
-
     <!-- Page Header -->
 
   {% block heading %}

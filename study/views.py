@@ -47,7 +47,7 @@ class postLV(ListView):
 		return qs
 
 class homeLV(ListView):
-    model = Post
+    model = Agora
     template_name = 'bsr/home.html'
 ##    context_object_name = 'posts'
     paginate_by = 5

@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <title>GNU 공과대학 회의실 어울마루</title>
 
-    <link rel="stylesheet" href="/static/reservation/css/blog_style.css?ver=28725">
+    <link rel="stylesheet" href="/static/reservation/css/blog_style.css?ver=5456">
 
     <!-- Custom Fonts -->
     <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
@@ -46,29 +46,32 @@
             <!-- </div> -->
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class ="deco">
-            <div class="deco_img">       
-                <a href="/"><img src="{% static 'reservation/img/AUL_MARU.PNG' %}"  style=" margin-left: 15%;  height: 50%; width: 70%; " /></a>
+        <div id ="deco" >
+            <div class="deco_img" >       
+                <a href="/"><img src="{% static 'study/img/AUL_MARU.PNG' %}"  style=" margin-left: 15%;  height: 50%; width: 70%; " /></a>
             </div>
+
         </div>
 
             <!-- /.container -->
-        <div id="menu">
+        <div style="display: flex;flex-direction: row;">    
+            <div id="menu">
+                <li class="first"><a href="{% url 'study:Intro' %}">INTRO</a></li>
                 <li class="first"><a href="{% url 'Room_Reservation' %}">RESERVATION</a></li>
-                <li class = "first"><a href="{% url 'study:post_list' %}">NOTICE</a></li>
-                <li class="first"><a href="{% url 'study:agora_list' %}">AGORA</a></li>
-                <li class="first">
-                    {% if user.is_active %}
-                    <a href="{% url 'logout' %}" style="">Logout</a>
-                    {% else %}
-                    <a href="{% url 'login' %}">Login</a>
-                    {% endif %}
-                </li>
+                <li class = "first"><a href="{% url 'study:agora_list' %}">NOTICE</a></li>
+                <li ><a href="{% url 'study:post_list' %}">AGORA</a></li>
+            </div>
+            <div class="ID_info" >
                     {% if user.is_authenticated %}
-                <li>
-                    <span class='username'>{{ user.username }}</span>
-                </li>
+                    <span class='username'>{{ user.username }} | &nbsp; </span>
                     {% endif %}
+                    {% if user.is_active %}
+                    <a href="{% url 'logout' %}" >Logout</a>
+                    {% else %}
+                    <a href="{% url 'signup' %}"> Sign up</a>
+                    <a href="{% url 'login' %}">| Login</a>
+                    {% endif %}
+            </div>
         </div>
 
 
@@ -86,9 +89,17 @@
         </div>
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="row">
-                    <p class="copyright text-muted">Made by &copy; 박수빈 2018</p></a>
+        <div class="footer">
+            <div class="footer_info">
+                <img src="{% static 'study/img/footer.jpg' %}" style="margin-left: 5%; margin-top: 1%;" >
+                <p style="margin-left: 1%; margin-top: 1%;"><strong>공과대학 회의실 어울마루</strong></p>
+                <p style="margin-left: 1%; margin-top: 1%;">경상남도 진주시 진주대로 501 401동 113호</p>    
+            </div>
+            <div class="footer_info">
+                <span style="margin-left: 14.5%; margin-bottom:1%;">담당자 : 공과대학 행정실 박정근 선생님</span>
+                <span style="margin-left: 1.5%; margin-bottom:1%;">TEL. 055-772-1613</span>
+                <span style="margin-left: 1.5%; margin-bottom:1%;">FAX. 055-772-1619</span>
+                <span style="margin-left: 1.5%; margin-bottom:1%;">E-mail. ab0394@gnu.ac.kr</span>
             </div>
         </div>
     </footer>
