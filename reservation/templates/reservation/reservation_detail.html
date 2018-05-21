@@ -27,107 +27,122 @@
                         <li><span class="ilbl">학과 :</span>  &nbsp;{{ reservation.major}} </li><br>
                         <li><span class="ilbl">전화번호 :</span>  &nbsp;{{ reservation.tel_num}} </li><br>
                         <li><span class="ilbl">신청 인원 :</span>  &nbsp;{{ reservation.num_people}} 명 </li><br>
-                        <li><span class="ilbl">빌리는 날짜 :</span> &nbsp; {{ reservation.rend_date|date:"Y-m-d D"}} </li><br>
-                        
-
+                        <li><span class="ilbl">예약 일 :</span> &nbsp; {{ reservation.rend_date|date:"Y-m-d D"}} </li>
+                        <br>
                         {% if reservation.room_number == 0 %}
-                            <li><span class="ilbl" >빌리는 장소 :</span>  &nbsp;세미나실</li>
+                            <li><span class="ilbl" >예약 장소 :</span>  &nbsp;세미나실</li>
                         {% endif%}
                         {% if reservation.room_number == 1 %}
-                            <li><span class="ilbl">빌리는 장소 :</span> &nbsp;라운지</li>
+                            <li><span class="ilbl">예약 장소 :</span> &nbsp;라운지</li>
                         {% endif%}
                         {% if reservation.room_number == 2 %}
-                            <li><span class="ilbl">빌리는 장소 :</span> &nbsp;갤러리</li>
+                            <li><span class="ilbl">예약 장소 :</span> &nbsp;갤러리</li>
                         {% endif%}
                         {% if reservation.room_number == 3 %}
-                            <li><span class="ilbl">빌리는 장소 :</span> &nbsp;세미나실 + 라운지</li>
+                            <li><span class="ilbl">예약 장소 :</span> &nbsp;세미나실 + 라운지</li>
                         {% endif%}
                         {% if reservation.room_number == 4 %}
-                            <li><span class="ilbl">빌리는 장소 :</span> &nbsp;라운지 + 갤러리</li>
+                            <li><span class="ilbl">예약 장소 :</span> &nbsp;라운지 + 갤러리</li>
                         {% endif%}
                         {% if reservation.room_number == 5 %}
-                            <li><span class="ilbl">빌리는 장소 :</span> &nbsp;세미나실 + 라운지 + 갤러리</li>
+                            <li><span class="ilbl">예약 장소 :</span> &nbsp;세미나실 + 라운지 + 갤러리</li>
                         {% endif%}
+                        <br>
                         <!--빌리는 시간 -->
                         {% if reservation.rend_time == 0 %}
-                            <li><span class="ilbl">빌리는 시간 :</span> &nbsp;9시-10시 </li>
-                        {% endif%}<br>
+                            <li><span class="ilbl">예약 시작 :</span> &nbsp;9시 </li>
+                        {% endif%}
                         {% if reservation.rend_time == 1 %}
-                            <li><span class="ilbl">빌리는 시간 :</span> &nbsp;10시-11시 </li>
+                            <li><span class="ilbl">예약 시작 :</span> &nbsp;10시 </li>
                         {% endif%}
                         {% if reservation.rend_time == 2 %}
-                            <li><span class="ilbl">빌리는 시간 :</span> &nbsp;11시-12시 </li>
+                            <li><span class="ilbl">예약 시작 :</span> &nbsp;11시 </li>
                         {% endif%}
                         {% if reservation.rend_time == 3 %}
-                            <li><span class="ilbl">빌리는 시간 :</span> &nbsp;12시-13시 </li>
+                            <li><span class="ilbl">예약 시작 :</span> &nbsp;12시 </li>
                         {% endif%}
                         {% if reservation.rend_time == 4 %}
-                            <li><span class="ilbl">빌리는 시간 :</span> &nbsp;13시-14시 </li>
+                            <li><span class="ilbl">예약 시작 :</span> &nbsp;13시 </li>
                         {% endif%}
                         {% if reservation.rend_time == 5 %}
-                            <li><span class="ilbl">빌리는 시간 :</span> &nbsp;14시-15시 </li>
+                            <li><span class="ilbl">예약 시작 :</span> &nbsp;14시 </li>
                         {% endif%}
                         {% if reservation.rend_time == 6 %}
-                            <li><span class="ilbl">빌리는 시간 :</span> &nbsp;15시-16시 </li>
+                            <li><span class="ilbl">예약 시작 :</span> &nbsp;15시 </li>
                         {% endif%}
                         {% if reservation.rend_time == 7 %}
-                            <li><span class="ilbl">빌리는 시간 :</span> &nbsp;16시-17시 </li>
+                            <li><span class="ilbl">예약 시작 :</span> &nbsp;16시 </li>
                         {% endif%}
                         {% if reservation.rend_time == 8 %}
-                            <li><span class="ilbl">빌리는 시간 :</span> &nbsp;17시-18시 </li>
+                            <li><span class="ilbl">예약 시작 :</span> &nbsp;17시 </li>
                         {% endif%}
-
+                        <br>
                         <!-- 반납시간 -->
                         {% if reservation.return_time == 0 %}
-                            <li><span class="ilbl">반납 시간 :</span> &nbsp;9시-10시 </li>
-                        {% endif%}<br>
+                            <li><span class="ilbl">얘약 종료 :</span> &nbsp;10시 </li>
+                        {% endif%}
                         {% if reservation.return_time == 1 %}
-                            <li><span class="ilbl">반납 시간 :</span> &nbsp;10시-11시 </li>
+                            <li><span class="ilbl">얘약 종료  :</span> &nbsp;11시 </li>
                         {% endif%}
                         {% if reservation.return_time == 2 %}
-                            <li><span class="ilbl">반납 시간 :</span> &nbsp;11시-12시 </li>
+                            <li><span class="ilbl">얘약 종료 :</span> &nbsp;12시 </li>
                         {% endif%}
                         {% if reservation.return_time == 3 %}
-                            <li><span class="ilbl">반납 시간 :</span> &nbsp;12시-13시 </li>
+                            <li><span class="ilbl">얘약 종료 :</span> &nbsp;13시 </li>
                         {% endif%}
                         {% if reservation.return_time == 4 %}
-                            <li><span class="ilbl">반납 시간 :</span> &nbsp;13시-14시 </li>
+                            <li><span class="ilbl">얘약 종료 :</span> &nbsp;14시 </li>
                         {% endif%}
                         {% if reservation.return_time == 5 %}
-                            <li><span class="ilbl">반납 시간 :</span>1 &nbsp;4시-15시 </li>
+                            <li><span class="ilbl">얘약 종료 :</span> &nbsp;15시 </li>
                         {% endif%}
                         {% if reservation.return_time == 6 %}
-                            <li><span class="ilbl">반납 시간 :</span> &nbsp;15시-16시 </li>
+                            <li><span class="ilbl">얘약 종료 :</span> &nbsp;16시 </li>
                         {% endif%}
                         {% if reservation.return_time == 7 %}
-                            <li><span class="ilbl">반납 시간 :</span> &nbsp;16시-17시 </li>
+                            <li><span class="ilbl">얘약 종료 :</span> &nbsp;17시 </li>
                         {% endif%}
                         {% if reservation.return_time == 8 %}
-                            <li><span class="ilbl">반납 시간 :</span> &nbsp;17시-18시 </li>
+                            <li><span class="ilbl">얘약 종료 :</span> &nbsp;18시 </li>
                         {% endif%}
+                        <br>
+                        <!-- 수락여부  -->
+                        {% if reservation.reservation_accept == 0 %}
+                            <li><span class="ilbl">수락 여부 : </span> &nbsp;신 청</li>
+                        {% endif%}
+                        {% if reservation.reservation_accept == 1 %}
+                            <li><span class="ilbl">수락 여부 : </span> &nbsp;거 절</li>
+                        {% endif%}
+                        {% if reservation.reservation_accept == 2 %}
+                            <li><span class="ilbl">수락 여부 : </span> &nbsp;수 락</li>
+                        {% endif%}
+                    </div>
 
                         
-
-                    </div>
                     <div class="post-set-btn">
                     <div class="btn-wrap">
-                    {% if reservation.author == user %}
+                    {% if reservation.author == user%}
                       <a href="{%url 'reservation_edit' pk_2=reservation.pk %}" style="height: 1.2vw; width: 4vw;">
                         <button type="button" class="btn btn-success" style="height: 1.2vw; width: 4vw;">수정</button>
                       </a>
                       <a href="{%url 'reservation_remove' pk_2=reservation.pk %}" style="height: 1.2vw; width: 4vw;">
                         <button type="button" class="btn btn-danger" style="height: 1.2vw; width: 4vw;">삭제</button>
                       </a>
-                      {% endif %}
+
+                    {% elif user.is_superuser %}
+                      <a href="{%url 'reservation_edit' pk_2=reservation.pk %}" style="height: 1.2vw; width: 4vw;">
+                        <button type="button" class="btn btn-success" style="height: 1.2vw; width: 4vw;">수정</button>
+                      </a>
+                      <a href="{%url 'reservation_remove' pk_2=reservation.pk %}" style="height: 1.2vw; width: 4vw;">
+                        <button type="button" class="btn btn-danger" style="height: 1.2vw; width: 4vw;">삭제</button>
+                      </a>
+                    {% endif %}
                       <a href="{% url 'Room_Reservation' %}" style="height: 1.2vw; width: 4vw;">
                         <button type="button" class="btn btn-info" style="height: 1.2vw; width: 4vw;">뒤로</button>
                       </a>
                     </div>
 
-                
                 <br/>
-                
-
             </div>
     </article>
         </div>

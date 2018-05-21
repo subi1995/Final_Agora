@@ -5,8 +5,6 @@
 <link rel="stylesheet" href="/static/study/css/detail_style.css?ver=7984658">
 <link rel="stylesheet" href="static/reservation/css/nodep-date-input-polyfill/nodep-date-input-polyfill.dist.js">
 
-
-
         <div class="content">
             <!--메인 영역-->
             <div class="main_content">
@@ -14,7 +12,7 @@
                 <div class="main_content_name"><h1>Edit Reservation</h1></div>
                 <div class="add_post"  style="width: 90% ;margin-left: 5%; margin-right:5% ; ">
                 <form method="POST" class="reservation-form">
-                  {% csrf_token %}
+                {% csrf_token %}
 
                 {{form.non_field_errors}}
                 <fieldset style="border: 0.1vw solid #ccc; padding-left: 2%; padding-top: 1.5%; padding-bottom: 1.5%;">
@@ -22,18 +20,18 @@
                     <ul style="padding-left: 2%;">
                       <li style="margin-bottom: 1.3%;">
                         {{form.name.errors}}
-                        <label for="id_name">신청자 이름 :</label>
-                        <input id="id_name" maxlength="10" name="name" type="text">
+                        <label for="id_name">신청자 이름 :</label>  
+                        <input id="id_name" maxlength="10" name="name" type="text" value={{ reservation.name }} >
                       </li>
                       <li style="margin-bottom: 1.3%;">
                         {{form.tel_num.errors}}
                         <label for="id_tel_num">전화번호 :</label>
-                      <input type="text" name="tel_num" id="id_tel_num" />
+                      <input type="text" name="tel_num" id="id_tel_num" value={{ reservation.tel_num }}>
                       </li>
                       <li style="margin-bottom: 1.3%;">
                         {{form.major.errors}}
                         <label for="id_major">학 과:</label>
-                      <input type="text" name="major" id="id_major" />
+                      <input type="text" name="major" id="id_major" value={{ reservation.major }}>
                       </li>
                     </ul>
                 </fieldset>
@@ -44,28 +42,69 @@
                         <li style="margin-bottom: 1.3%;">
                           {{form.num_people.errors}}
                           <label for="id_num_people">신청 인원:</label>
-                        <input type="number"  min="1" max="30" name="num_people" id="id_num_people" />
+                        <input type="number"  min="1" max="30" name="num_people" id="id_num_people" value={{ reservation.num_people }} >
                         </li>
+                        <!-- 예약장소 -->
                         <li style="margin-bottom: 1.3%;">
                           <label for="id_room_number">예약 장소:</label>
-                          <select id="id_room_number" name="room_number">
+                          {% if user.is_superuser %}
+                          <select id="id_room_number" name="room_number" value={{ reservation.room_number }}>
+                            <optgroup label="목 록">
+                              {% if reservation.room_number == 0 %}  
+                              <option value="0">세미나 실</option>
+                              {% elif reservation.room_number == 1 %}                  
+                              <option value="1">어울마루 전체</option>
+                              {% endif %}
+                            </optgroup>
+                          </select>
+                          {% else %}
+                          <select id="id_room_number" name="room_number" value={{ reservation.room_number }}>
                             <optgroup label="목 록">
                               <option value="0">세미나 실</option>                  
                               <option value="1">어울마루 전체</option>
                             </optgroup>
-                        </select>
+                          </select>
+                          {% endif %}
                         </li>
-
+                        <!-- 예약 날짜 -->
                         <li style="margin-bottom: 1.3%;">
                           {{form.rend_date.errors}}
                           <label for="datepicker">예약 날짜:</label>
-                          <input type="text" id="datepicker" name="rend_date" class="hasDatepicker" />
+                          <input type="text" id="datepicker" name="rend_date" class="hasDatepicker" value={{ reservation.rend_date | date:"Y-m-d D" }}>
                         </li>
 
                       <li style="margin-bottom: 1.3%;">
-                          <label >예약 시간:</label>
-                          {{form.rend_time.errors}}                
-                        <select id="id_rend_time" name="rend_time">
+                          <label >예약 시작:</label>
+                          {{form.rend_time.errors}}
+                        {%if user.is_superuser%}
+                          <select id="id_rend_time" name="rend_time" value={{ reservation.rend_time }}>
+                            {% if reservation.rend_time == 0 %}
+                            <option value="0">9:00</option>  
+                            {% elif reservation.rend_time == 1 %}             
+                            <option value="1">10:00</option>
+                            {% elif reservation.rend_time == 2 %}
+                            <option value="2">11:00</option>  
+                            {% elif reservation.rend_time == 3 %}
+                            <option value="3">12:00</option> 
+                            {% elif reservation.rend_time == 4 %}
+                            <option value="4">13:00</option>
+                            {% elif reservation.rend_time == 5 %}
+                            <option value="5">14:00</option>
+                            {% elif reservation.rend_time == 6 %}
+                            <option value="6">15:00</option>  
+                            {% elif reservation.rend_time == 7 %}
+                            <option value="7">16:00</option>
+                            {% elif reservation.rend_time == 8 %}
+                            <option value="8">17:00</option>
+                            {% elif reservation.rend_time == 9 %}
+                            <option value="9">18:00</option>
+                            {% elif reservation.rend_time == 10 %}
+                            <option value="10">19:00</option>
+                            {% endif %}
+                          </select>
+
+                        {% else %}
+                        <select id="id_rend_time" name="rend_time" value={{ reservation.rend_time }}>
                           <option value="0">9:00</option>               
                           <option value="1">10:00</option>
                           <option value="2">11:00</option>  
@@ -78,26 +117,74 @@
                           <option value="9">18:00</option>
                           <option value="10">19:00</option>
                         </select>
-                      </li>            
+                        {% endif %}
+                      </li>   
+                      <!--  예약 종료 -->
                       <li style="margin-bottom: 1.3%;">           
-                          <label >반납 시간:</label>
+                          <label >예약 종료:</label>
                           {{form.rend_time.errors}}
-                        <select id="id_rend_time" name="return_time">
-                          <option value="0">10:00</option>               
-                          <option value="1">11:00</option>
-                          <option value="2">12:00</option>  
-                          <option value="3">13:00</option> 
-                          <option value="4">14:00</option>
-                          <option value="5">15:00</option>
-                          <option value="6">16:00</option>  
-                          <option value="7">17:00</option>
-                          <option value="8">18:00</option>
-                          <option value="9">19:00</option>
-                          <option value="10">s20:00</option>
+                       {% if user.is_superuser %}   
+                        <select id="id_return_time" name="return_time">
+                            {% if reservation.return_time == 0 %}
+                            <option value="0">10:00</option>     
+                            {% elif reservation.return_time == 1 %}          
+                            <option value="1">11:00</option>
+                            {% elif reservation.return_time == 2 %}                          
+                            <option value="2">12:00</option>  
+                            {% elif reservation.return_time == 3 %}                          
+                            <option value="3">13:00</option> 
+                            {% elif reservation.return_time == 4 %}                          
+                            <option value="4">14:00</option>
+                            {% elif reservation.return_time == 5 %}                          
+                            <option value="5">15:00</option>
+                            {% elif reservation.return_time == 6 %}                          
+                            <option value="6">16:00</option>  
+                            {% elif reservation.return_time == 7 %}                          
+                            <option value="7">17:00</option>
+                            {% elif reservation.return_time == 8 %}                          
+                            <option value="8">18:00</option>
+                            {% elif reservation.return_time == 9 %}
+                            <option value="9">19:00</option>
+                            {% elif reservation.return_time == 10 %}
+                            <option value="10">20:00</option>
+                            {% endif %}
                         </select>
+                       {% else %}
+                         <select id="id_return_time" name="return_time">                          
+                            <option value="0">10:00</option>                               
+                            <option value="1">11:00</option>                          
+                            <option value="2">12:00</option>                            
+                            <option value="3">13:00</option>           
+                            <option value="4">14:00</option>                      
+                            <option value="5">15:00</option>
+                            <option value="6">16:00</option>  
+                            <option value="7">17:00</option>
+                            <option value="8">18:00</option>
+                            <option value="9">19:00</option>
+                            <option value="10">20:00</option>
+                          </select>                        
+                      {%endif%}
+                      </li>
+                  
+                      <li>
+                        {% if user.is_superuser %}
+                        <label for="reservation_accept">수락 여부 : </label>
+                        <select id="id_reservation_accept" name="reservation_accept" value={{ reservation.reservation_accept }}>
+                              <option value="0">신청</option>               
+                              <option value="1">거절</option>
+                              <option value="2">수락</option>  
+                        </select>
+                        {%else%}
+                        <label for="reservation_accept">수락 여부:</label>
+                        <select id="id_reservation_accept" name="reservation_accept" value={{ reservation.reservation_accept }}>
+                              <option value="0">신청</option>               
+                        </select>
+                        {% endif %}
                       </li>
                   </ul>
                 </fieldset>
+
+                <!-- 관리자만 수락 여부 결정 -->             
             <div class="add_post_control" style="display: flex;width: 25%; margin-left: 75%;  margin-top: 1vw; justify-content: space-between;">
                     <button type="submit" class="save btn btn-default"  style="height: 2vw; width: 4vw; border-radius: 5px; background-color: #DC5E44; color: #FFFFFF; font-size: 0.7vw;">save</button>
 
@@ -107,15 +194,6 @@
                     <button type="button" class="btn btn-danger" style="height: 2vw; width: 4vw; border-radius: 5px; font-size: 0.7vw; font-weight: bold;">cancel</button>
                     </a>
             </div>
-            <!-- <div class="add_post_control">
-                    <button type="submit" class="save btn btn-default">save</button>
-
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-                    <a href="{% url 'Room_Reservation' %}" style=" width: 10%;">
-                    <button type="button" class="btn btn-danger">cancel</button>
-                    </a>
-            </div> -->
             </form>
           </div>
         </div>

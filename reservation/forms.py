@@ -8,6 +8,6 @@ class ReservationForm(forms.ModelForm):
             model = Reservation
 
             fields = ('name','tel_num','major','num_people',
-                      'room_number','rend_date','rend_time','return_time')
+                      'room_number','rend_date','rend_time','return_time','reservation_accept',)
             
 ##            widgets={ 'name': Textarea(attrs={'cols': 80, 'rows': 20}),}

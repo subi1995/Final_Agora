@@ -36,16 +36,16 @@
                     <div class="post-set-btn">
                     <div class="btn-wrap">
                     {% if post.author == user %}
-                      <a href="{%url 'study:post_edit' pk=post.pk %}" style="height: 1.2vw; width: 4vw;">
-                        <button type="button" class="btn btn-success" style="height: 1.2vw; width: 4vw;">수정</button>
-                      </a>
-                      <a href="{%url 'study:post_remove' pk=post.pk %}" style="height: 1.2vw; width: 4vw;">
-                        <button type="button" class="btn btn-danger" style="height: 1.2vw; width: 4vw;">삭제</button>
-                      </a>
-                      {% endif %}
-                      <a href="{% url 'study:post_list' %}" style="height: 1.2vw; width: 4vw;">
-                        <button type="button" class="btn btn-info" style="height: 1.2vw; width: 4vw;">뒤로</button>
-                      </a>
+                       <a href="{%url 'study:post_edit' pk=post.pk %}" style="height: 1.2vw; width: 4vw;">
+                          <button type="button" class="btn btn-success" style="height: 1.5vw; width: 3.5vw; border-radius: 5px; font-size: 0.7vw;">Edit</button>
+                        </a>
+                        <a href="{%url 'study:post_remove' pk=post.pk %}" style="height: 1.2vw; width: 4vw;">
+                          <button type="button" class="btn btn-danger" style="height: 1.5vw; width: 3.5vw; border-radius: 5px; font-size: 0.7vw;">Delete</button>
+                        </a>
+                        {% endif %}
+                        <a href="{% url 'study:post_list' %}" style="height: 1.2vw; width: 4vw;">
+                          <button type="button" class="btn btn-info" style="height: 1.5vw; width: 3.5vw; border-radius: 5px; font-size: 0.7vw;">Back</button>
+                        </a>
                     </div>
 
                     <hr>
@@ -66,7 +66,9 @@
                             <br>
                             <span class="comment-login-required" > 댓글 입력을 위해서는 <a href="{%url 'login' %}" class="login-link" style="">로그인</a>이 필요합니다. </span>
                             {% endif %}
-                            <button class="btn btn-default btn-xs comment-save" type="submit">저장</button>
+                            <br>
+                            <br>
+                            <button class="btn btn-default btn-xs comment-save" type="submit" style="height: 1vw; width: 2vw; border-radius: 5px; padding-bottom: 1%; font-size: 0.5vw;">save</button>
                           {% endif %}
                           </div>
                           <br>

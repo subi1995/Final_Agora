@@ -67,9 +67,11 @@
 
 	{% endif %}
 	<br>		
+	{% if user.is_superuser %}
 		<div style="width: 90%; margin-left: 5%; margin-right: 5%;">
 			<a href="{% url 'study:agora_new' %}"><button type="submit" style="height: 2vw; width: 5vw; background-color: #FFFFFF; border-radius: 10px; border: 0.2vw solid #ccc"><img src="/static/study/img/edit.png" style="height: 95%;"></button></a>
 		</div>
+	{% endif %}
 					
 	    	<p>
 				<form action="" method="get" class="text-right search" style="text-align: center; padding-right: 5%;" >

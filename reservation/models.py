@@ -47,14 +47,17 @@ class Reservation (models.Model):
     num_people = models.IntegerField()
 
     rend_date = models.DateTimeField()
-    rend_time = models.SmallIntegerField(choices=STATUS,default = FirstTIME)
-
-    return_time = models.SmallIntegerField(choices=STATUS,default = FirstTIME)
     
-    room_number = models.SmallIntegerField()
+    rend_time = models.SmallIntegerField( default = 0)
+    return_time = models.SmallIntegerField( default = 0)
     
-    reservation_accept = models.BooleanField(default = False) #BooleanField의 기본 양식 위젯은 CheckboxInput
+    room_number = models.SmallIntegerField(default = 0)
+    
+    reservation_accept = models.SmallIntegerField(default = 0)
     updated_date = models.DateTimeField(blank = True, null = True)
+
+    class Meta:
+        ordering = ['-updated_date']
     
     def publish(self):
         self.updated_date = timezone.now()

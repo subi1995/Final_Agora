@@ -37,11 +37,11 @@ def reservation_detail(request, pk_2):
 
 @login_required
 def reservation_new(request):
-    print(request.method, '1')
+    
     if request.method == "POST":
         print(request.method, '2')
         form = ReservationForm(request.POST)
-        print(form, '4156')
+
         if form.is_valid():
             print(request.method, '3')
             reservation = form.save(commit=False)
@@ -52,7 +52,7 @@ def reservation_new(request):
     else:
         print(request.method, '4')
         form = ReservationForm()
-    return render(request, 'reservation/reservation_edit.html', {'form': form})
+    return render(request, 'reservation/reservation_edit.html', {'form': form })
 
 @login_required
 def reservation_remove(request, pk_2):
@@ -64,7 +64,7 @@ def reservation_remove(request, pk_2):
 def reservation_edit(request,pk_2):
     reservation = get_object_or_404(Reservation, pk=pk_2)    
     if request.method == "POST":
-        form = ReservationForm(instance=reservation)
+        form = ReservationForm(request.POST,instance=reservation)
         if form.is_valid():
             reservation = form.save(commit=False)
             reservation.author = request.user
@@ -73,5 +73,4 @@ def reservation_edit(request,pk_2):
             return redirect('reservation_detail', pk_2=reservation.pk)
     else:
         form = ReservationForm(instance=reservation)
-    return render(request, 'reservation/reservation_edit.html', {'form': form})
-
+    return render(request, 'reservation/reservation_edit.html', {'form': form ,'reservation': reservation})

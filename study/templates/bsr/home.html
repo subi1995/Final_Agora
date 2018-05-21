@@ -17,7 +17,7 @@
                 <!-- Home의 NOTICE -->
                 <div class="home" style="   display: flex; flex-direction: column; ">
 
-                    <div> <h1 style="color: #DC5E44; font-size: 1vw; margin-left: 5%; margin-top:2%;">Recent NOTICE Posts<br></h1></div>   
+                    <div> <h1 style="color: #DC5E44; font-size: 1vw; margin-left: 5%; margin-top:2%;">Recent Notices<br></h1></div>   
                         <div style="width: 100% ">
                             <table class="content_table" style="width: 90% ;margin-left: 5%; margin-top: 2.5%; height: 100%; ">
                                 <colgroup>
@@ -31,11 +31,11 @@
                                         <th class="table_title">제목</th>
                                         <th class="table_title">작성일</th>
                                     </tr>
-                                    {% for post in object_list %}
+                                    {% for agora in object_list %}
                                     <tr>
-                                        <th class="table_text">{{ post.author }}</th>                                
-                                        <th class="table_text" style="text-decoration: none;"><a href="{% url 'study:post_detail' pk=post.pk %}" >{{ post.title }}</a></td></a></th>
-                                        <th class="table_text_date">{{post.created_at|date:"Y-m-d D"}}</th>
+                                        <th class="table_text">{{ agora.author }}</th>                                
+                                        <th class="table_text" style="text-decoration: none;"><a href="{% url 'study:agora_detail' pk_2=agora.pk %}" >{{ agora.title }}</a></td></a></th>
+                                        <th class="table_text_date">{{agora.created_at|date:"Y-m-d D"}}</th>
                                     </tr>
                                     {% endfor %}
                                 </thead>

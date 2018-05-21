@@ -29,7 +29,8 @@
 								<th>신청자</th>
 								<th>장 소</th>
 								<th>예약 일</th>
-								<th colspan="2" align="center">예약 시간</th>							
+								<th>예약 시작</th>
+								<th>예약 종료</th>							
 								<th>전화 번호</th>
 								<th>상태</th>
 							</tr>
@@ -105,10 +106,13 @@
 								
 								<th class="table_text_date">{{reservation.tel_num}} </th>
 
-								{% if reservation.reservation_accept == False %}
+								{% if reservation.reservation_accept == 0 %}
+								<th class="table_text_date" style="color: green;">신청</th>
+								{% endif %}
+								{% if reservation.reservation_accept == 1 %}
 								<th class="table_text_date" style="color: red;">거절</th>
-								{% endif%}
-								{% if reservation.reservation_accept == True %}
+								{% endif %}
+								{% if reservation.reservation_accept == 2 %}
 								<th class="table_text_date" style="color: blue;">수락</th>
 								{% endif%}								
 								</tr>
@@ -131,7 +135,7 @@
 
 		  {% for i in paginator.page_range %}
 		    {% if page_obj.number == i %}
-		      <li class="active" style="float: left; text-align: center;"><span>  {{ i }}&nbsp;&nbsp;<span class="sr-only">(current)</span></span></li>
+		      <li class="active" style="float: left; text-align: center;"><span>  {{ i }}&nbsp;&nbsp;<span class="sr-only"></span></span></li>
 		    {% else %}
 		      <li style="float: left; text-align: center;"><a href="?page={{ i }}">  {{ i }}&nbsp;&nbsp;</a></li>
 		    {% endif %}

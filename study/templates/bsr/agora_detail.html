@@ -37,15 +37,16 @@
                       <div class="btn-wrap">
                       {% if agora.author == user %}
                         <a href="{%url 'study:agora_edit' pk_2=agora.pk %}" style="height: 1.2vw; width: 4vw;">
-                          <button type="button" class="btn btn-success" style="height: 1.2vw; width: 4vw;">수정</button>
+                          <button type="button" class="btn btn-success" style="height: 1.5vw; width: 3.5vw; border-radius: 5px; font-size: 0.7vw;">Edit</button>
                         </a>
                         <a href="{%url 'study:agora_remove' pk_2=agora.pk %}" style="height: 1.2vw; width: 4vw;">
-                          <button type="button" class="btn btn-danger" style="height: 1.2vw; width: 4vw;">삭제</button>
+                          <button type="button" class="btn btn-danger" style="height: 1.5vw; width: 3.5vw; border-radius: 5px; font-size: 0.7vw;">Delete</button>
                         </a>
                         {% endif %}
                         <a href="{% url 'study:agora_list' %}" style="height: 1.2vw; width: 4vw;">
-                          <button type="button" class="btn btn-info" style="height: 1.2vw; width: 4vw;">뒤로</button>
+                          <button type="button" class="btn btn-info" style="height: 1.5vw; width: 3.5vw; border-radius: 5px; font-size: 0.7vw;">Back</button>
                         </a>
+
                       </div>
                   
                   </div>

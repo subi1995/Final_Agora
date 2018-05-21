@@ -54,7 +54,7 @@ class homeLV(ListView):
 
     def get_context_data(self,**kwargs):
         context = super(homeLV,self).get_context_data(**kwargs)
-        context['Agora'] = Agora.objects.order_by('title')
+        context['Post'] = Agora.objects.order_by('title')
         return context
 
 def post_detail(request, pk):
