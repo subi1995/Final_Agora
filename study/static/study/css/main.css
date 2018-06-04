@@ -81,6 +81,13 @@ h1, h2, h3, h4 {
 	border:0.1vw solid #ccc;
 	padding-bottom: 2%;
 }
+.map{
+    text-align: justify;   
+	position: relative;
+	width: 90%;
+	margin-left: 5%;
+	border:0.1vw solid #ccc;
+}
 .content {
 	
 	position: relative;
