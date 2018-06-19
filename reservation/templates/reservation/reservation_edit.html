@@ -66,13 +66,13 @@
                           </select>
                           {% endif %}
                         </li>
+
                         <!-- 예약 날짜 -->
                         <li style="margin-bottom: 1.3%;">
                           {{form.rend_date.errors}}
                           <label for="datepicker">예약 날짜:</label>
-                          <input type="text" id="datepicker" name="rend_date" class="hasDatepicker" value={{ reservation.rend_date | date:"Y-m-d D" }}>
+                          <input type="text" id="datepicker" name="rend_date" class="hasDatepicker" placeholder="YYYY-MM-DD " value={{ reservation.rend_date | date:"Y-m-d D" }}><span style="font-size:0.6vw; color: #333333;">&nbsp;&nbsp;※ 날짜 형식에 맞게 입력해주세요</span></input>            
                         </li>
-
                       <li style="margin-bottom: 1.3%;">
                           <label >예약 시작:</label>
                           {{form.rend_time.errors}}

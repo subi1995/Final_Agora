@@ -43,7 +43,7 @@ class Reservation (models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     name = models.CharField(max_length = 10)    
     major = models.CharField(max_length = 30)
-    tel_num = models.IntegerField()
+    tel_num = models.CharField(max_length = 11)
     num_people = models.IntegerField()
 
     rend_date = models.DateTimeField()

@@ -36,6 +36,16 @@
           <button type="button" class="btn btn-danger" style="height: 2vw; width: 4vw; border-radius: 5px; font-size: 0.7vw; font-weight: bold;">cancel</button>
         </a>
         </div>
+        {% if form.errors %}
+          <div class="site-heading">
+            <hr class="small">
+              <span class="subheading">잘못된 로그인</span>
+              <script>
+                alert('정보가 잘돗되었습니다!')
+                window.location.href="/accounts/login/"
+              </script>
+          </div>
+        {%endif%}
         </form>
         <div style="width: 50%; margin-left: 25%; margin-right: 50%;margin-top: 5%;">
           <span class="signup-guide">아이디가 없으신가요? <a href="{% url 'signup' %}" style="border: 0.05vw solid #777; padding: 0.2vw;"><mark>Sign up </mark>Click!</a></span>  

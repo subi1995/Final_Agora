@@ -221,3 +221,19 @@ h1, h2, h3, h4 {
     display: flex;   
     flex-direction: row;
 }
+.footer_logo{
+    width: 4.5vw;
+    height: 1.3vw;
+    margin-left: 5%; 
+    margin-top: 1%;
+}
+.footer_text_first{
+    font-size: 0.6vw;
+    margin-left: 1%; 
+    margin-top: 1%;
+}
+.footer_text_second{
+    font-size: 0.6vw;
+    margin-left: 1.5%; 
+    margin-bottom:1%;
+}
