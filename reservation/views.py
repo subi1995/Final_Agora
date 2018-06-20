@@ -58,7 +58,7 @@ def reservation_new(request):
 def reservation_remove(request, pk_2):
     reservation = get_object_or_404(Reservation,pk = pk_2)
     reservation.delete()
-    return redirect('reservation/reservation_list.html')
+    return redirect('Room_Reservation')
 
 @login_required
 def reservation_edit(request,pk_2):
