@@ -43,6 +43,16 @@
           <button type="button" class="btn btn-danger" style="height: 2vw; width: 4vw; border-radius: 5px; font-size: 0.7vw; font-weight: bold;">cancel</button>
         </a>
         </div>
+		{% if form.errors %}
+          <div class="site-heading">
+            <hr class="small">
+              <span class="subheading">Sign up Error</span>
+              <script>
+                alert('회원가입 정보가 잘못되었습니다!')
+                window.location.href="/accounts/signup/"
+              </script>
+          </div>
+        {%endif%}
         </form>        
       </div>
     </div>

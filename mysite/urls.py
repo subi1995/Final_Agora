@@ -11,7 +11,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^', include('study.urls', namespace='study')), #, namespace='study'
-    url(r'',include('reservation.urls')),
+    url(r'^',include('reservation.urls')),
     url(r'^accounts/signup/$', views.signup, name='signup'),
 	url(r'^summernote/', include('django_summernote.urls')),
 ]
