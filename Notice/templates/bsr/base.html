@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>GNU 공과대학 회의실 어울마루</title>
+    <link rel="icon" href="{% static 'bsr/img/profile-pic.png' %}">
+
+    <link rel="stylesheet" href="/static/study/css/blog_style.css?ver=575756">
+
+    <!-- Custom Fonts -->
+	<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+    <link href="{% static 'bsr/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+    <!-- Navigation -->
+    <!-- <nav class="navbar navbar-default navbar-custom navbar-fixed-top"> -->
+        <!-- <div class="container-fluid"> -->
+            <!-- Brand and toggle get grouped for better mobile display -->
+       <!--      <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button> -->
+<!--                 <a class="navbar-brand" href="{% url 'study:post_list' %}">몽키와 선샤인의 영어공부</a> -->
+            <!-- </div> -->
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id ="deco" >
+            <div class="deco_img" >       
+                <a href="/"><img src="{% static 'study/img/AUL_MARU.PNG' %}"  style=" margin-left: 15%;  height: 50%; width: 70%; " /></a>
+            </div>
+
+        </div>
+
+            <!-- /.container -->
+        <div style="display: flex;flex-direction: row;">    
+            <div id="menu">
+                <li class="first"><a href="{% url 'study:Intro' %}">INTRO</a></li>
+                <li class="first"><a href="{% url 'Room_Reservation' %}">RESERVATION</a></li>
+                <li class = "first"><a href="{% url 'study:agora_list' %}">NOTICE</a></li>
+                <li ><a href="{% url 'study:post_list' %}">AGORA</a></li>
+            </div>
+            <div class="ID_info" >
+                    {% if user.is_authenticated %}
+                    <span class='username'>{{ user.username }} | &nbsp; </span>
+                    {% endif %}
+                    {% if user.is_active %}
+                    <a href="{% url 'logout' %}" >Logout</a>
+                    {% else %}
+                    <a href="{% url 'signup' %}"> Sign up</a>
+                    <a href="{% url 'login' %}">| Login</a>
+                    {% endif %}
+            </div>
+        </div>
+    <!-- Page Header -->
+
+  {% block heading %}
+  {% endblock %}
+
+        <!-- <div class="content container"> -->
+        <div class="row">
+             <div class="col-md-8">
+                {% block content %}
+
+                {% endblock %}
+            </div>
+        </div>
+ 
+   <!-- Footer -->
+    <footer>
+        <div class="footer">
+            <div class="footer_info">
+                <img class="footer_logo" src="{% static 'study/img/footer.jpg' %}">
+                <p class="footer_text_first"><strong>공과대학 회의실 어울마루</strong></p>
+                <p class="footer_text_first">경상남도 진주시 진주대로 501 401동 113호</p>    
+            </div>
+            <div class="footer_info">
+                <span style="margin-left: 15%; margin-bottom:1%;font-size: 0.6vw;">담당자 : 박정근 </span>
+                <span class="footer_text_second">TEL. 055-772-1613</span>
+                <span class="footer_text_second">FAX. 055-772-1619</span>
+                <span class="footer_text_second">E-mail. ab0394@gnu.ac.kr</span>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="{% static 'bsr/vendor/jquery/jquery.min.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'bsr/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="{% static 'bsr/js/jqBootstrapValidation.js' %}"></script>
+    <script src="{% static 'bsr/js/contact_me.js' %}"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="{% static 'bsr/js/clean-blog.min.js' %}"></script>
+
+</body>
+
+</html>

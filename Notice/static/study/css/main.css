@@ -1,0 +1,262 @@
+@font-face { 
+  font-family: Noto Sans KR; 
+  src: url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+  font-family: 'Spinnaker', sans-serif;
+  src: url(//fonts.googleapis.com/css?family=Spinnaker);  
+  font-family: 'Nanum Gothic', sans-serif;    
+  src: url(//fonts.googleapis.com/css?family=Nanum+Gothic);  
+  font-family: 'Itim', cursive;
+  font-family: 'Bungee Inline', cursive; 
+  src: url(//fonts.googleapis.com/css?family=Bungee+Inline|Itim);   
+}
+
+html { height: 100%; font-family: sans-serif; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+body { height: 100%; -webkit-font-smoothing: antialiased; font-smoothing: antialiased; -webkit-overflow-scrolling: touch; overflow-scrolling: touch; }
+html, body, div, span, applet, object, iframe, figure, h5, h6, p, blockquote, pre {text-decoration: none;}, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead,  td { margin: 0; padding: 0; border: 0;}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary { display: block; }
+div, article, section, header, footer, p, ul, li, span, label { box-sizing: border-box; }
+
+a {
+	text-decoration: none;
+	font-weight: normal;
+	color: black;
+}
+tr {font-weight: bold;}
+
+th {text-decoration: none; font-weight: normal;} 
+body {
+    font-family: 'Spinnaker', sans-serif;
+	background-color: #E1E1E1;
+}
+h1, h2, h3, h4 {
+   font-family: 'Spinnaker', sans-serif;
+   font-size: 1.5em;
+}
+
+.header {
+	position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 10%;
+    padding: calc(100vw * 30 / 360);
+}
+
+.menu_bar {
+	font-size: 2vw;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.home{
+    font-family: 'Nanum Gothic', sans-serif;   
+	position: relative;
+	width: 90%;
+	height: 13vw;
+	margin-left: 5%;
+	border:0.1vw solid #ccc;
+}
+.home_notice{
+ 	font-family: 'Bungee Inline', cursive; 
+ 	background-color: rgba(247,196,188,0.75);
+ 	width: 40%;
+ 	text-align: center;
+ 	color: #FFFFFF;
+    position: relative;
+	display: flex;
+	flex-direction: column;   
+}
+.intro{
+    font-family: 'Nanum Gothic', sans-serif;
+    text-align: justify;   
+	position: relative;
+	line-height: 1.8em;
+	width: 90%;
+	margin-left: 5%;
+	border:0.1vw solid #ccc;
+	padding-bottom: 2%;
+}
+.map{
+    text-align: justify;   
+	position: relative;
+	width: 90%;
+	margin-left: 5%;
+	border:0.1vw solid #ccc;
+}
+.content {
+	
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	width: 70%;
+	height: 90%;
+	margin-right: 15%;
+	margin-left: 15%;
+}
+
+.side_content {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 20%;
+}
+
+.side_content_name {
+	font-size: 2vw;
+	margin-bottom: 2vw;
+}
+
+.side_content_unit {
+	font-size: 1vw;
+}
+
+.main_content {
+	font-family: 'Spinnaker', sans-serif;
+	background-color: #FFFFFF;
+	position: relative;
+	margin-left: 15%;
+	margin-right: 15%;
+	display: flex;
+	flex-direction: column;
+	width: 70%;
+	padding-bottom: 5%;
+}
+
+.main_content_name {
+	width: 90%;
+	margin-left: 5%;
+	font-size: 1.3vw;
+	margin-top: 1vw;
+	margin-bottom: 1vw;
+	color: #DC5E44;
+}
+
+.main_content_unit {
+	display: flex;
+	position: relative;
+}
+.main_content_control{
+	position: relative;
+	margin-top: 2vw;
+}
+.main_notice{
+	position: relative;
+	width: 90% ;
+	margin-left: 5%;
+	margin-top: 5%; 
+}
+.main_user{
+	position: relative;
+	height: 40%;
+}
+.content_tabel {
+	position: relative;
+	width: 100%;
+	display: flex;
+	table-layout: fixed;
+	border-collapse: collapse;
+	font-size: 1vw;
+	border-top: 1px solid black;
+}
+.content_table_menu{
+	font-size: 1vw;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#eeeeee+27,eeeeee+82;Grey+Flat */
+	background: rgb(238,238,238); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(238,238,238,1) 27%, rgba(238,238,238,1) 82%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(238,238,238,1) 27%,rgba(238,238,238,1) 82%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(238,238,238,1) 27%,rgba(238,238,238,1) 82%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
+}
+
+.table_text , .table_text a , .table_text a:visited , .table_text a:active{
+    font-family: 'Nanum Gothic', sans-serif;   	
+	text-decoration: none;
+	font-size: 0.8vw;
+	border-bottom: 0.05vw solid #777;		
+}
+.table_title{
+    font-family: 'Nanum Gothic', sans-serif;  
+    font-weight: bold; 
+	text-decoration: none;
+	font-size: 0.8vw;
+	border-bottom: 0.05vw solid #777;
+	justify-content: left;		
+}
+
+.table_text_date{
+    font-family: 'Nanum Gothic', sans-serif;   
+	font-size:  0.75vw;
+	border-bottom: 0.05vw solid #bbb;		
+}
+.content_table thead th {
+    font-family: 'Nanum Gothic', sans-serif;   
+    font-size: 0.75vw;
+	text-decoration: none;	
+	border: 0.05vw solid #bbb;	
+
+}
+
+.content_table thead th .last {
+	/*border-right: 2px dotted #777;*/
+}
+
+.line{
+	margin-top: 2vw;
+	margin-bottom: 2vw;
+	border-top: 0.1vw solid #777;
+}
+
+/* 댓글 기능*/
+.discus {
+	display: flex;
+	width: 80%;
+}
+
+/*새로은 글 추가*/
+.add_post{
+	margin-bottom: 1vw;
+	display: flex;
+	position: relative;
+	flex-direction: column;
+
+}
+/*회의실 사진*/
+.photo_content {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	width: 80%;
+}
+.photo{
+	width: 30%;
+	margin-left: 1vw; 
+}
+.unit_line {
+	padding: 0.5vw 0.5vw;
+	display: flex;
+	border-top:  0.05vw solid #777;
+	border-bottom: 0.05vw solid #777;
+}
+.unit_line h1 {
+	font-size: 1.3vw;
+}
+.unit_line_impormation {
+	padding: 0.5vw 0.5vw;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border-top:  0.05vw solid #777;
+	border-bottom: 0.05vw solid #777;
+}
+.unit_line_post {
+	height: 20vw;
+	padding: 1vw 1vw;
+	border-top:  0.05vw solid #777;
+	border-bottom: 0.05vw solid #777;
+}
+/**/

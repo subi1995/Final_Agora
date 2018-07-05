@@ -21,17 +21,17 @@
                       <li style="margin-bottom: 1.3%;">
                         {{form.name.errors}}
                         <label for="id_name">신청자 이름 :</label>  
-                        <input id="id_name" maxlength="10" name="name" type="text" value={{ reservation.name }} >
+                        <input id="id_name" maxlength="10" name="name" type="text" value="{{ reservation.name }}" >
                       </li>
                       <li style="margin-bottom: 1.3%;">
                         {{form.tel_num.errors}}
                         <label for="id_tel_num">전화번호 :</label>
-                      <input type="text" name="tel_num" id="id_tel_num" value={{ reservation.tel_num }}>
+                      <input type="text" name="tel_num" id="id_tel_num" value="{{ reservation.tel_num }}">
                       </li>
                       <li style="margin-bottom: 1.3%;">
                         {{form.major.errors}}
                         <label for="id_major">학 과:</label>
-                      <input type="text" name="major" id="id_major" value={{ reservation.major }}>
+                      <input type="text" name="major" id="id_major" value="{{ reservation.major }}">
                       </li>
                     </ul>
                 </fieldset>
@@ -42,13 +42,13 @@
                         <li style="margin-bottom: 1.3%;">
                           {{form.num_people.errors}}
                           <label for="id_num_people">신청 인원:</label>
-                        <input type="number"  min="1" max="30" name="num_people" id="id_num_people" value={{ reservation.num_people }} >
+                        <input type="number"  min="1" max="30" name="num_people" id="id_num_people" value="{{ reservation.num_people }}" >
                         </li>
                         <!-- 예약장소 -->
                         <li style="margin-bottom: 1.3%;">
                           <label for="id_room_number">예약 장소:</label>
                           {% if user.is_superuser %}
-                          <select id="id_room_number" name="room_number" value={{ reservation.room_number }}>
+                          <select id="id_room_number" name="room_number" value="{{ reservation.room_number }}">
                             <optgroup label="목 록">
                               {% if reservation.room_number == 0 %}  
                               <option value="0">세미나 실</option>
@@ -58,7 +58,7 @@
                             </optgroup>
                           </select>
                           {% else %}
-                          <select id="id_room_number" name="room_number" value={{ reservation.room_number }}>
+                          <select id="id_room_number" name="room_number" value="{{ reservation.room_number }}">
                             <optgroup label="목 록">
                               <option value="0">세미나 실</option>                  
                               <option value="1">어울마루 전체</option>
@@ -77,7 +77,7 @@
                           <label >예약 시작:</label>
                           {{form.rend_time.errors}}
                         {%if user.is_superuser%}
-                          <select id="id_rend_time" name="rend_time" value={{ reservation.rend_time }}>
+                          <select id="id_rend_time" name="rend_time" value="{{ reservation.rend_time }}">
                             {% if reservation.rend_time == 0 %}
                             <option value="0">9:00</option>  
                             {% elif reservation.rend_time == 1 %}             
@@ -104,7 +104,7 @@
                           </select>
 
                         {% else %}
-                        <select id="id_rend_time" name="rend_time" value={{ reservation.rend_time }}>
+                        <select id="id_rend_time" name="rend_time" value="{{ reservation.rend_time }}">
                           <option value="0">9:00</option>               
                           <option value="1">10:00</option>
                           <option value="2">11:00</option>  
@@ -169,14 +169,14 @@
                       <li>
                         {% if user.is_superuser %}
                         <label for="reservation_accept">수락 여부 : </label>
-                        <select id="id_reservation_accept" name="reservation_accept" value={{ reservation.reservation_accept }}>
+                        <select id="id_reservation_accept" name="reservation_accept" value="{{ reservation.reservation_accept }}">
                               <option value="0">신청</option>               
                               <option value="1">거절</option>
                               <option value="2">수락</option>  
                         </select>
                         {%else%}
                         <label for="reservation_accept">수락 여부:</label>
-                        <select id="id_reservation_accept" name="reservation_accept" value={{ reservation.reservation_accept }}>
+                        <select id="id_reservation_accept" name="reservation_accept" value="{{ reservation.reservation_accept }}">
                               <option value="0">신청</option>               
                         </select>
                         {% endif %}

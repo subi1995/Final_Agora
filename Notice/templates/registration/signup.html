@@ -1,0 +1,52 @@
+{% extends 'bsr/base.html' %}
+
+{% load staticfiles %}
+
+{% block heading %}
+{% endblock %}
+
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/study/css/main.css?ver=213654">
+
+
+<div class="content">
+  <div class="main_content">
+    <div class="main_content_name"><h1>Sign up</h1></div>
+      <div class="Login" style="width: 90% ;margin-left: 5%; margin-right:5% ; margin-top: 5%;">
+        <form method="POST" class="signup-form" action="{% url 'signup' %}">
+        {% csrf_token %}
+
+        <div class="signup_input" style="  border: 0.1vw solid #777; display: flex; flex-direction: column;">
+           <div class="form-group" style="margin: 1vw;">
+            <label for="{{ form.username.id_for_label }}"> User  ID : &nbsp;&nbsp;</label>
+            <input class="form-control" style=" width: 25%; height: 1.3vw; border-radius: 5px;" id="{{ form.username.id_for_label }}" maxlength="15" name="{{ form.username.html_name }}" placeholder="이름을 입력해주세요" type="text" />
+            </div>
+            <div class="form-group" style="margin: 1vw;">
+            <label for="{{ form.email.id_for_label }}"> User Email :</label>
+            <input class="form-control" style=" width: 25%; height: 1.3vw; border-radius: 5px;" id="{{ form.email.id_for_label }}" maxlength="30" name="{{ form.email.html_name }}" placeholder="이메일 주소를 입력해주세요" type="text"  />
+            </div>
+            <div class="form-group" style="margin: 1vw;">
+              <label for="{{ form.password1.id_for_label }}">Password :</label>
+              <input class="form-control" style=" width: 25%;  height: 1.3vw; border-radius: 5px;" id="{{ form.password1.id_for_label }}" maxlength="120" placeholder="숫자와 문자를 포함해 8자리 이상" name="{{ form.password1.html_name }}" type="password" />
+            </div>
+            <div class="form-group" style="margin: 1vw;">
+              <label for="{{ form.password2.id_for_label }}">Password :</label>
+              <input class="form-control"  style=" width: 25%; height: 1.3vw; border-radius: 5px;" id="{{ form.password2.id_for_label }}" maxlength="120" placeholder="같은 비밀번호 입력해주세요" name="{{ form.password2.html_name }}" type="password" />
+            </div>
+        </div>
+
+        <div style="display: flex; width: 20%; margin-left: 80%;  margin-top: 1vw; justify-content: space-between;">
+          <input type="submit" class="save btn btn-success" value="sign up" style="height: 2vw; width: 4vw; border-radius: 5px; background-color: #DC5E44; color: #FFFFFF; font-size: 0.7vw;">
+          <a href="{% url 'study:post_list' %}">
+          <button type="button" class="btn btn-danger" style="height: 2vw; width: 4vw; border-radius: 5px; font-size: 0.7vw; font-weight: bold;">cancel</button>
+        </a>
+        </div>
+        </form>        
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,86 @@
+{% extends 'bsr/base.html' %}
+{% load staticfiles %}
+
+
+{% block heading %}
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/study/css/main.css?ver=213654"> 
+    <div class="content">
+        <div class="main_content">
+        	<br>
+			<div class="main_content_name">NOTICE</div>
+				<div class="main_content_unit">
+					<table class="content_table" style="width: 90% ;margin-left: 5%; margin-right:5% ; ">
+						<colgroup>
+							<col class="num" width="10%">
+							<col class="subject" width="60%">
+							<col class="writer" width="10%">
+							<col class="date" width="20%">
+
+						</colgroup>
+						<thead>
+							<tr class="content_table_menu" >
+								<th class="table_title">번호</th>
+								<th class="table_title">제목</th>
+								<th class="table_title">작성자</th>
+								<th class="table_title">작성일자</th>
+								
+							</tr>
+							{% for agora in agoras %}
+							<tr>
+								<th class="table_text">{{ agora.pk }}</th>
+								<th class="table_text" style="text-decoration: none;"><a href="{% url 'study:agora_detail' pk_2=agora.pk %}" >{{ agora.title }}</th>
+								<th class="table_text">{{ agora.author }}</th>
+								<th class="table_text_date">{{agora.created_at|date:"Y-m-d D"}}</th>
+								
+							</tr>
+							{% endfor %}
+						</thead>
+					</table>
+				</div>
+
+	{% if is_paginated %}
+	<br>
+	<div class="text-center pagination-wrap" style="display: flex; justify-content: center; " >
+		<ul class="pagination" style="list-style: none;">
+		  {% if page_obj.has_previous %}
+		    <li style="float: left; text-align: center;"><a href="?page={{ page_obj.previous_page_number }}">&laquo;&nbsp;&nbsp;</a></li>
+		  {% else %}
+		    <li class="disabled" style="float: left; text-align: center;"><span>&laquo;&nbsp;&nbsp;</span></li>
+		  {% endif %}
+		  {% for i in paginator.page_range %}
+		    {% if page_obj.number == i %}
+		      <li class="active" style="float: left; text-align: center;"><span>  {{ i }}&nbsp;&nbsp;<span class="sr-only"></span></span></li>
+		    {% else %}
+		      <li style="float: left; text-align: center;"><a href="?page={{ i }}">  {{ i }}&nbsp;&nbsp;</a></li>
+		    {% endif %}
+		  {% endfor %}
+		  {% if page_obj.has_next %}
+		    <li style="float: left; text-align: center;" ><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+		  {% else %}
+		    <li class="disabled" style="float: left; text-align: center;" ><span>&raquo;</span></li>
+		  {% endif %}
+		</ul>
+	</div>
+
+	{% endif %}
+	<br>		
+	{% if user.is_superuser %}
+		<div style="width: 90%; margin-left: 5%; margin-right: 5%;">
+			<a href="{% url 'study:agora_new' %}"><button type="submit" style="height: 2vw; width: 5vw; background-color: #FFFFFF; border-radius: 10px; border: 0.2vw solid #ccc"><img src="/static/study/img/edit.png" style="height: 95%;"></button></a>
+		</div>
+	{% endif %}
+					
+	    	<p>
+				<form action="" method="get" class="text-right search" style="text-align: center; padding-right: 5%;" >
+					<input type="text" name="q" value="{{ q }}" placeholder="제목 검색" class="search-input" style="width: 10vw;"" >
+					<input type="submit" value="검색" class="btn btn-success search-btn" style="width: 3vw;">
+				</form>
+
+			</p>  
+	        </div>
+	    </div>
+
+{% endblock content %}

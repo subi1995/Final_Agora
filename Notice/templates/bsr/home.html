@@ -1,0 +1,52 @@
+{% extends 'bsr/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<link rel="stylesheet" href="/static/study/css/main.css?ver=adfasdf">
+
+ <article class="page" style="height: 85%">
+    <div class="content">
+        <div class="main_content">
+                <div class="main_content_name" style="color: #DC5E44">All Posts</div>
+                <!-- Home의 첫번째 배너 사진 -->
+                <div class="home">
+                    <a href="/"><img src="{% static 'study/img/_LEE0862.jpg' %}"  style=" height: 100% ;width: 100%; " /></a>
+                </div>
+
+                <div class="main_content_name" style="color: #DC5E44"></div>
+                <!-- Home의 NOTICE -->
+                <div class="home" style="   display: flex; flex-direction: column; ">
+
+                    <div> <h1 style="color: #DC5E44; font-size: 1vw; margin-left: 5%; margin-top:2%;">Recent Notices<br></h1></div>   
+                        <div style="width: 100% ">
+                            <table class="content_table" style="width: 90% ;margin-left: 5%; margin-top: 2.5%; height: 100%; ">
+                                <colgroup>
+                                    <col class="num" width="10%">
+                                    <col class="subject" width="60%">
+                                    <col class="date" width="30%">
+                                </colgroup>
+                                <thead>
+                                    <tr class="content_table_menu">
+                                        <th class="table_title" >작성자</th>
+                                        <th class="table_title">제목</th>
+                                        <th class="table_title">작성일</th>
+                                    </tr>
+                                    {% for agora in object_list %}
+                                    <tr>
+                                        <th class="table_text">{{ agora.author }}</th>                                
+                                        <th class="table_text" style="text-decoration: none;"><a href="{% url 'study:agora_detail' pk_2=agora.pk %}" >{{ agora.title }}</a></td></a></th>
+                                        <th class="table_text_date">{{agora.created_at|date:"Y-m-d D"}}</th>
+                                    </tr>
+                                    {% endfor %}
+                                </thead>
+                            </table>
+                        </div>               
+                    
+                </div>
+                
+                
+            </div>
+        </div>
+</article>
+
+{% endblock %}

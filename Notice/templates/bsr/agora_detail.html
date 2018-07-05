@@ -1,0 +1,60 @@
+{% extends 'bsr/base.html' %}
+{% load staticfiles %}
+
+{% load staticfiles %}
+
+{% block heading %}
+{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/study/css/detail_style.css?ver=456456"> 
+
+        <div class="content">
+
+            <!--메인 영역-->
+            <div class="main_content">
+                <br>
+                <br>
+                <div class="main_content_name">NOTICE</div>
+                <div class="main_content_unit" style="width: 90%; margin-left: 5%; margin-right: 5%">
+
+                    <div class="unit_line" style="  text-align: center;">
+                           <h1>{{ agora.title }}</h1>
+                    </div>
+
+                    <div class="unit_line_information" style="display: flex; flex-direction: row;" >
+                        <div><span class="ilbl">작성자 :</span> {{ agora.author}} </div>
+                        <div><span class="ilbl"> 작성일자 :</span>  {{ agora.created_at|date:"Y-m-d D"}} </div>
+                    </div>
+                  
+                    <div class="unit_line_post">
+                        {% autoescape off %}
+                        {{agora.content|linebreaksbr }}
+                        {% endautoescape %}
+                    </div>
+                    <div class="post-set-btn">
+                      <div class="btn-wrap">
+                      {% if agora.author == user %}
+                        <a href="{%url 'study:agora_edit' pk_2=agora.pk %}" style="height: 1.2vw; width: 4vw;">
+                          <button type="button" class="btn btn-success" style="height: 1.5vw; width: 3.5vw; border-radius: 5px; font-size: 0.7vw;">Edit</button>
+                        </a>
+                        <a href="{%url 'study:agora_remove' pk_2=agora.pk %}" style="height: 1.2vw; width: 4vw;">
+                          <button type="button" class="btn btn-danger" style="height: 1.5vw; width: 3.5vw; border-radius: 5px; font-size: 0.7vw;">Delete</button>
+                        </a>
+                        {% endif %}
+                        <a href="{% url 'study:agora_list' %}" style="height: 1.2vw; width: 4vw;">
+                          <button type="button" class="btn btn-info" style="height: 1.5vw; width: 3.5vw; border-radius: 5px; font-size: 0.7vw;">Back</button>
+                        </a>
+
+                      </div>
+                  
+                  </div>
+            </div>
+        </div>    
+
+  </div>
+
+
+
+{% endblock %}

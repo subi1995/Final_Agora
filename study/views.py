@@ -100,7 +100,7 @@ def post_edit(request, pk):
 	else:
 		if post.author == request.user:
 			form = PostForm(instance=post)
-			return render(request, 'bsr/post_edit.html', {'form':form})
+			return render(request, 'bsr/post_edit.html', {'form':form,'post':post})
 		else:
 			return render(request, 'bsr/warning.html')
 
@@ -174,7 +174,7 @@ def agora_edit(request, pk_2):
     else:
             if agora.author == request.user:
                     form = AgoraForm(instance=agora)
-                    return render(request, 'bsr/agora_edit.html', {'form':form})
+                    return render(request, 'bsr/agora_edit.html', {'form':form,'agora':agora})
             else:
                     return render(request, 'bsr/warning.html')
 
